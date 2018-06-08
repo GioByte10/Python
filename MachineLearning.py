@@ -4,7 +4,7 @@
 from sklearn import tree
 
 features = [[7,0], [8,1], [9,1], [6,0]] #0 = AM || #1 = PM
-labels = [1, 1, 0, 0]  #1 = Sun || #0 = No Sun
+
 
 clf = tree.DecisionTreeClassifier()
 cld = clf.fit(features, labels)
