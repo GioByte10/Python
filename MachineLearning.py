@@ -1,6 +1,6 @@
 #First program in Python and first Machine learning try
 #Is there sun or no
-
+from pip._vendor.distlib.compat import raw_input
 from sklearn import tree
 
 features = [[7,0], [8,1], [9,1], [6,0]] #0 = AM || #1 = PM
