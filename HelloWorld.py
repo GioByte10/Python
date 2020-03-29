@@ -7,4 +7,4 @@ Created on Sar Oct  6 09:48:58   2018
 
 """
 
-print("Hello World")    
+print("Hello World")

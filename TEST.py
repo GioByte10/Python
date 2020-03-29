@@ -6,24 +6,24 @@ Created on Thu Oct  4 18:46:56 2018
 @author: diegoesquivel
 """
 
-nombre = raw_input("Cual es tu nombre? ")
+nombre = input("Cual es tu nombre? ")
 
-edad = raw_input("Cual es tu edad? ")
+edad = input("Cual es tu edad? ")
 
-agua_necesaria = raw_input("Normlamente cuanta agua consumes en un dia? ")
+agua_necesaria = input("Normlamente cuanta agua consumes en un dia? ")
 
 if agua_necesaria == "1":
-    respuesta_litros= raw_input("Consumes " + agua_necesaria + " litro al dia? ")
+    respuesta_litros= input("Consumes " + agua_necesaria + " litro al dia? ")
 else:
-    respuesta_litros= raw_input("Consumes " + agua_necesaria + " litros al dia? ")
+    respuesta_litros= input("Consumes " + agua_necesaria + " litros al dia? ")
 
 if respuesta_litros == "si" or "SI" or "Si"  "sI":
     print("Gracias.")
 else:
-    agua_necesaria = raw_input("Normlamente cuanta agua consumes en un dia? ")
+    agua_necesaria = input("Normlamente cuanta agua consumes en un dia? ")
     
-disponible = raw_input("Cuanta agua tienes disponible en el momento ? (tu respuesta estara en litros) ")
-respues_dias = raw_input("Supongamos que estas en un naufragio, cuantos dias estaras en el naufragio? ")
+disponible = input("Cuanta agua tienes disponible en el momento ? (tu respuesta estara en litros) ")
+respues_dias = input("Supongamos que estas en un naufragio, cuantos dias estaras en el naufragio? ")
 
 print("normalmente lo minimo que un ser humano necesita de agua para vivir es 0.8 lts ")
 

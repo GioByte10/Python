@@ -19,13 +19,13 @@ elif meridian == "PM" or "Pm" or "pm":
     meridian = 1
 
 else:
-    print "Not a correct Format"
+    print("Not a correct Format")
 
-prediccion = cld.predict ([[hour, meridian]])       
+prediction = cld.predict ([[hour, meridian]])
 
 if prediccion == 1:
-    print "There is sun"
+    print("There is sun")
 
 else:
-    print "There is no sun"  
+    print("There is no sun")
 
