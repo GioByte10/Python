@@ -1,6 +1,4 @@
 import random
-
-
 class DNA:
 
     def __init__(self, population):
@@ -13,8 +11,19 @@ class DNA:
             for num in range(len(self.target)):
                 self.population.membersList[index] += self.newChar()
 
+    @staticmethod
+    def newChar():
+        char = random.randint(55, 117)
+        if char >= 91:
+            char += 6
+
+        if char < 65:
+            char -= 7
+
+        if char == 123:
+            char = 32
+
+        return chr(char)
 
 
-    def newChar(self):
-        return chr(random.randint(65, 122))
 
