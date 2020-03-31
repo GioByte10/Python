@@ -12,12 +12,12 @@ dna = DNA(population)
 
 dna.generateDNA()
 
+
 while not population.endb:
 
     population.generateFitness()
     population.generateMatingPool()
     population.nextGeneration()
-
 
 
 

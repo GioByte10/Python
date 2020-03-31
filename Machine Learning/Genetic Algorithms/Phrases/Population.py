@@ -14,6 +14,7 @@ class Population:
         self.mates = 0
         self.matingPool = [0]
         self.endb = False
+        self.generations = 1
 
     def generateFitness(self):
         for ind in range(len(self.membersList)):
@@ -39,6 +40,7 @@ class Population:
         self.fitness = [0] * self.numOfMembers
 
     def nextGeneration(self):
+        self.generations += 1
         self.membersList = [""] * self.numOfMembers
         for member in range(self.numOfMembers):
             numA = random.randint(0, self.mates - 1)
@@ -74,9 +76,12 @@ class Population:
         return string
 
     def end(self):
+        members = (self.generations - 1) * self.numOfMembers
         for index in range(self.numOfMembers):
             if self.membersList[index] != "":
                 print(self.membersList[index])
+                members += 1
             else:
                 break
         self.endb = True
+        print("\nIt took " + str(self.generations) + " generations to evolve, and " + str(members) + " members")
