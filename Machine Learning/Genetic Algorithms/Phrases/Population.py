@@ -5,7 +5,7 @@ from DNA import DNA
 
 class Population:
 
-    def __init__(self, numOfMembers, target, mutation):
+    def __init__(self, numOfMembers, target, mutation, fitnessFactor):
         self.numOfMembers = numOfMembers
         self.membersList = [""] * numOfMembers
         self.fitness = [0] * numOfMembers
@@ -15,6 +15,7 @@ class Population:
         self.matingPool = [0]
         self.endb = False
         self.generations = 1
+        self.fitnessFactor = fitnessFactor
 
     def generateFitness(self):
         for ind in range(len(self.membersList)):
@@ -22,6 +23,7 @@ class Population:
                 if self.membersList[ind][index] == self.target[index]:
                     self.fitness[ind] += 1
             print(self.membersList[ind] + "  " + str(int((self.fitness[ind] / len(self.target)) * 100)) + "%")
+            self.fitness[ind] = pow(self.fitness[ind], 4)
         print("\n\n\n")
 
     def generateMatingPool(self):
@@ -84,4 +86,4 @@ class Population:
             else:
                 break
         self.endb = True
-        print("\nIt took " + str(self.generations) + " generations to evolve, and " + str(members) + " members")
+        #print("\nIt took " + str(self.generations) + " generations to evolve, and " + str(members) + " members")
