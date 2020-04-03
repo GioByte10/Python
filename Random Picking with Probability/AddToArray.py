@@ -3,7 +3,7 @@ probabilities = [0] * 100
 total = 0
 
 for num in range(100):
-    probabilities[num] = num
+    probabilities[num] = num + 1
     total += probabilities[num]
 
 toPick = [0] * total
