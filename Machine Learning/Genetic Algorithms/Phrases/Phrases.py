@@ -5,7 +5,7 @@ from Population import Population
 mutation = 0.01
 cases = 1
 generations = 0
-power = 1
+power = 120
 
 print("Welcome to Natural Selected Phrases        Mutation Rate = " + str(mutation * 100) + "%")
 members = int(input("Enter a population: "))
@@ -21,7 +21,6 @@ for num in range(cases):
     while not population.endb:
 
         population.generateFitness()
-        population.generateMatingPool()
         population.nextGeneration()
 
     generations += population.generations
