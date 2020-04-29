@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="78182779-deaf-4c5b-8566-328d498c0616" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/A_Star.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -80,5 +80,9 @@
       <screen x="0" y="0" width="1280" height="680" />
     </state>
     <state width="1259" height="179" key="GridCell.Tab.0.right/0.0.1280.680@0.0.1280.680" timestamp="1587979137009" />
+    <state x="337" y="165" key="com.intellij.ide.util.TipDialog" timestamp="1588060175758">
+      <screen x="0" y="0" width="1280" height="680" />
+    </state>
+    <state x="337" y="165" key="com.intellij.ide.util.TipDialog/0.0.1280.680@0.0.1280.680" timestamp="1588060175758" />
   </component>
 </project>
