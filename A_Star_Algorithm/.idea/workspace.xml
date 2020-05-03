@@ -2,11 +2,17 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="78182779-deaf-4c5b-8566-328d498c0616" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/Spot.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Graphics/Graphics.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../A_Star/.idea/A_Star.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../A_Star/A_Star.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../A_Star/Graphics.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../A_Star/Spot.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../A_Star/Test.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/dictionaries/super.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Machine Learning/Genetic Algorithms/.idea/Genetic Algorithms.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/A_Star.py" beforeDir="false" afterPath="$PROJECT_DIR$/A_Star.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Binary Tree/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../Binary Tree/.idea/vcs.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Spot.py" beforeDir="false" afterPath="$PROJECT_DIR$/Spot.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Graphics/Graphics.py" beforeDir="false" afterPath="$PROJECT_DIR$/../Graphics/Graphics.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -20,14 +26,15 @@
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
-    <option name="showExcludedFiles" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="com.intellij.ide.scratch.LRUPopupBuilder$1/New Scratch File" value="Python" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../Machine Learning/Genetic Algorithms/Phrases/Population.py" />
   </component>
-  <component name="RunManager">
+  <component name="RunManager" selected="Python.Graphics">
     <configuration name="A_Star" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="A_Star_Algorithm" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -49,8 +56,30 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
+    <configuration name="Graphics" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="A_Star_Algorithm" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/../Graphics" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/../Graphics/Graphics.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Python.Graphics" />
         <item itemvalue="Python.A_Star" />
       </list>
     </recent_temporary>
@@ -69,25 +98,29 @@
     <servers />
   </component>
   <component name="WindowStateProjectService">
-    <state width="1259" height="179" key="GridCell.Tab.0.bottom" timestamp="1588178867711">
+    <state x="421" y="96" key="FileChooserDialogImpl" timestamp="1588408408165">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
-    <state width="1259" height="179" key="GridCell.Tab.0.bottom/0.0.1280.680@0.0.1280.680" timestamp="1588178867711" />
-    <state width="1259" height="179" key="GridCell.Tab.0.center" timestamp="1588178867711">
+    <state x="421" y="96" key="FileChooserDialogImpl/0.0.1280.680@0.0.1280.680" timestamp="1588408408165" />
+    <state width="1259" height="179" key="GridCell.Tab.0.bottom" timestamp="1588478756355">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
-    <state width="1259" height="179" key="GridCell.Tab.0.center/0.0.1280.680@0.0.1280.680" timestamp="1588178867711" />
-    <state width="1259" height="179" key="GridCell.Tab.0.left" timestamp="1588178867711">
+    <state width="1259" height="179" key="GridCell.Tab.0.bottom/0.0.1280.680@0.0.1280.680" timestamp="1588478756355" />
+    <state width="1259" height="179" key="GridCell.Tab.0.center" timestamp="1588478756354">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
-    <state width="1259" height="179" key="GridCell.Tab.0.left/0.0.1280.680@0.0.1280.680" timestamp="1588178867711" />
-    <state width="1259" height="179" key="GridCell.Tab.0.right" timestamp="1588178867711">
+    <state width="1259" height="179" key="GridCell.Tab.0.center/0.0.1280.680@0.0.1280.680" timestamp="1588478756354" />
+    <state width="1259" height="179" key="GridCell.Tab.0.left" timestamp="1588478756354">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
-    <state width="1259" height="179" key="GridCell.Tab.0.right/0.0.1280.680@0.0.1280.680" timestamp="1588178867711" />
-    <state x="337" y="165" key="com.intellij.ide.util.TipDialog" timestamp="1588147503067">
+    <state width="1259" height="179" key="GridCell.Tab.0.left/0.0.1280.680@0.0.1280.680" timestamp="1588478756354" />
+    <state width="1259" height="179" key="GridCell.Tab.0.right" timestamp="1588478756354">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
-    <state x="337" y="165" key="com.intellij.ide.util.TipDialog/0.0.1280.680@0.0.1280.680" timestamp="1588147503067" />
+    <state width="1259" height="179" key="GridCell.Tab.0.right/0.0.1280.680@0.0.1280.680" timestamp="1588478756354" />
+    <state x="337" y="165" key="com.intellij.ide.util.TipDialog" timestamp="1588304301406">
+      <screen x="0" y="0" width="1280" height="680" />
+    </state>
+    <state x="337" y="165" key="com.intellij.ide.util.TipDialog/0.0.1280.680@0.0.1280.680" timestamp="1588304301406" />
   </component>
 </project>
