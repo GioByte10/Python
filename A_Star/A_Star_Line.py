@@ -1,22 +1,22 @@
-from Spot import Spot
+from SpotCircle import SpotCircle
 from tkinter import *
 import math
 import time
 
 root = Tk()
 c = Canvas(root, height=600, width=600, bg="white")
-Spot.c = c
+SpotCircle.c = c
 
 rows = 50
 cols = 50
 grid = []
-Spot.rows = rows
-Spot.cols = cols
+SpotCircle.rows = rows
+SpotCircle.cols = cols
 
-squareHeight = int(c.cget("height")) / rows
-squareWidth = int(c.cget("width")) / cols
-Spot.height = squareHeight
-Spot.width = squareWidth
+circleHeight = int(c.cget("height")) / rows
+circleWidth = int(c.cget("width")) / cols
+SpotCircle.height = circleHeight
+SpotCircle.width = circleWidth
 
 openSet = []
 closedSet = []
@@ -29,6 +29,7 @@ temp = None
 done = False
 
 newPath = False
+line = 0
 
 
 def createCanvas():
@@ -46,9 +47,9 @@ def createSpotGrid():
 
     for row in range(rows):
         for col in range(cols):
-            grid[row][col] = Spot(row, col)
+            grid[row][col] = SpotCircle(row, col)
 
-    Spot.grid = grid
+    SpotCircle.grid = grid
 
     for row in range(rows):
         for col in range(cols):
@@ -68,17 +69,21 @@ def heuristic(neighbor, end):
 def track():
     path = []
     temp = current
-    path.append(temp)
+    path.append(temp.x * circleWidth + circleWidth / 2)
+    path.append(temp.y * circleHeight + circleHeight / 2)
     while temp.parent is not None:
-        path.append(temp.parent)
+        path.append(temp.parent.x * circleWidth + circleWidth / 2)
+        path.append(temp.parent.y * circleHeight + circleHeight / 2)
         temp = temp.parent
 
-    for spot in path:
-        c.itemconfig(spot.square, fill="blue")
+        c.coords(line, path)
+
 
 
 createCanvas()
 createSpotGrid()
+
+line = c.create_line(0, 0, 0, 0, width=circleWidth / 2, fill="blue")
 
 start = grid[0][0]
 end = grid[rows - 1][cols - 1]
@@ -128,12 +133,6 @@ while len(openSet) > 0 and not done:
                 neighbor.parent = current
                 # time.sleep(0.2)
 
-    for spot in openSet:
-        c.itemconfig(spot.square, fill="green")
-
-    for spot in closedSet:
-        c.itemconfig(spot.square, fill="red")
-
     track()
 
     root.update_idletasks()
@@ -143,7 +142,8 @@ if done:
     track()
 else:
     print("No solution")
-    for spot in grid:
-        c.itemconfig(spot.square, fill="red")
+    for rows in grid:
+        for spot in rows:
+            c.itemconfig(spot.circle, fill="red")
 
 mainloop()
