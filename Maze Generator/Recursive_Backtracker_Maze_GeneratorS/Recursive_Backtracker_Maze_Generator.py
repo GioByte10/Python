@@ -2,8 +2,8 @@ from Cell import Cell
 from tkinter import *
 import time
 
-rows = 20
-cols = 20
+rows = 7
+cols = 7
 
 Cell.rows = rows
 Cell.cols = cols

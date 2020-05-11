@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/../Lexicographic_Order/.idea/Lexicographic_Order.iml" filepath="$PROJECT_DIR$/../Lexicographic_Order/.idea/Lexicographic_Order.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/Traveling_Salesman.iml" filepath="$PROJECT_DIR$/.idea/Traveling_Salesman.iml" />
+    </modules>
+  </component>
+</project>
