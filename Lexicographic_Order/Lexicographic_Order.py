@@ -12,45 +12,50 @@ def swap(item1, item2):
 
 print(str(values))
 
-while True:
 
-    largestI = -1
-    for i in range(len(values) - 1):
-        if values[i] < values[i + 1]:
-            largestI = i
+def lexOrder():
+    while True:
 
-    if largestI == -1:
-        break
+        largestI = -1
+        for i in range(len(values) - 1):
+            if values[i] < values[i + 1]:
+                largestI = i
 
-    largestJ = -1
-    for j in range(len(values)):
-        if values[largestI] < values[j]:
-            largestJ = j
+        if largestI == -1:
+            break
 
-    if largestJ == -1:
-        break
+        largestJ = -1
+        for j in range(len(values)):
+            if values[largestI] < values[j]:
+                largestJ = j
 
-    # print("Largest I: " + str(largestI) + "  Largest J:" + str(largestJ))
+        if largestJ == -1:
+            break
 
-    swap(largestI, largestJ)
-    # print("Swapped Values: " + str(values))
+        # print("Largest I: " + str(largestI) + "  Largest J:" + str(largestJ))
 
-    toReverse = []
+        swap(largestI, largestJ)
+        # print("Swapped Values: " + str(values))
 
-    for i in range(len(values) - largestI - 1):
-        item = values[i + largestI + 1]
-        toReverse.append(item)
+        toReverse = []
 
-    for item in toReverse:
-        values.remove(item)
+        for i in range(len(values) - largestI - 1):
+            item = values[i + largestI + 1]
+            toReverse.append(item)
 
-    # print("To Reverse: " + str(toReverse))
+        for item in toReverse:
+            values.remove(item)
 
-    toReverse.reverse()
+        # print("To Reverse: " + str(toReverse))
 
-    for item in toReverse:
-        values.append(item)
+        toReverse.reverse()
+
+        for item in toReverse:
+            values.append(item)
 
 
-    print(str(values))
-    # print()
+        print(str(values))
+        # print()
+
+
+lexOrder()
