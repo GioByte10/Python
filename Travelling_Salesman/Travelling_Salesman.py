@@ -14,7 +14,7 @@ best = c.create_text(200, 50, text="", fill="purple", font=1)
 width = int(c.cget("width"))
 height = int(c.cget("height"))
 
-numCities = 10
+numCities = 9
 cities = []
 order = []
 
