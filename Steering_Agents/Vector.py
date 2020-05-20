@@ -33,6 +33,7 @@ class Vector:
     def setMag(self, mag):
         if self.limit == 0:
             divisor = self.magnitude / mag
+            # print(self.magnitude)
             self.magnitude /= divisor
             self.x /= divisor
             self.y /= divisor
