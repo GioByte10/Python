@@ -4,8 +4,8 @@ import math
 
 class Vehicle:
 
-    maxSpeed = 1
-    maxForce = 0.05
+    maxSpeed = 2
+    maxForce = 0.03
     r = 6
     c = None
 

@@ -12,20 +12,25 @@ height = int(c.cget("height"))
 
 Vehicle.c = c
 
+Vehicle.width = width
+Vehicle.height = height
+
 mouseCircle = c.create_oval(190, 190, 210, 210, fill="gray")
 x = 200
 y = 200
 
 mouse = Vector(200, 200)
 
-numFood = 600
+numFood = 30
 foodV = []
 food = []
 
 poisonV = []
 poison = []
 
+numVehicles = 5
 vehicles = []
+toRemove = []
 
 
 def createCanvas():
@@ -50,18 +55,18 @@ def motion(event):
 
 def createFood():
     for index in range(numFood):
-        foodV.append(Vector(random.randint(0, width), random.randint(0, height)))
+        foodV.append(Vector(random.randint(8, width - 8), random.randint(8, height - 8)))
         food.append(c.create_oval(foodV[index].x - 4, foodV[index].y - 4, foodV[index].x + 4, foodV[index].y + 4,
                                   fill="green"))
 
-    for index in range(1):
-        poisonV.append(Vector(random.randint(0, width), random.randint(0, height)))
+    for index in range(numFood):
+        poisonV.append(Vector(random.randint(8, width - 8), random.randint(8, height - 8)))
         poison.append(c.create_oval(poisonV[index].x - 4, poisonV[index].y - 4, poisonV[index].x + 4, poisonV[index].y +
                                     4, fill="red"))
 
 
 def createVehicles():
-    for index in range(5):
+    for index in range(numVehicles):
         vehicles.append(Vehicle(random.randint(0, width), random.randint(0, height)))
 
 
@@ -69,13 +74,14 @@ createCanvas()
 createFood()
 createVehicles()
 
-while True:
+while len(vehicles) > 0:
 
     # vehicle.eat(foodV, food)
     # vehicle.eat(poisonV, poison)
 
     # vehicle.seek(mouse)
     for vehicle in vehicles:
+        vehicle.boundaries()
         vehicle.behaviors(foodV, poisonV, food, poison)
         vehicle.update()
         vehicle.display()
@@ -84,8 +90,28 @@ while True:
     root.update_idletasks()
     root.update()
 
-    if len(food) == 0:
-        break
+    for vehicle in vehicles:
+        if vehicle.dead():
+            Vehicle.c.delete(vehicle.vehicle)
+            vehicle.deleteIndicators()
+            toRemove.append(vehicle)
+
+    for vehicle in toRemove:
+        vehicles.remove(vehicle)
+
+    toRemove = []
+
+    if random.random() < 0.03:
+        foodV.append(Vector(random.randint(0, width), random.randint(0, height)))
+        food.append(c.create_oval(foodV[len(foodV) - 1].x - 4, foodV[len(foodV) - 1].y - 4, foodV[len(foodV) - 1].x + 4,
+                                  foodV[len(foodV) - 1].y + 4,
+                                  fill="green"))
+
+    if random.random() < 0.005:
+        poisonV.append(Vector(random.randint(0, width), random.randint(0, height)))
+        poison.append(c.create_oval(poisonV[len(poisonV) - 1].x - 4, poisonV[len(poisonV) - 1].y - 4,
+                                    poisonV[len(poisonV) - 1].x + 4, poisonV[len(poisonV) - 1].y + 4,
+                                    fill="red"))
 
     time.sleep(0.001)
 

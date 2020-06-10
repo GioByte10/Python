@@ -14,7 +14,7 @@ best = c.create_text(200, 50, text="", fill="purple", font=1)
 width = int(c.cget("width"))
 height = int(c.cget("height"))
 
-numCities = 9
+numCities = 7
 cities = []
 order = []
 
@@ -34,6 +34,38 @@ def createCities():
         cities[city] = [random.randint(5, width - 5), random.randint(5, height - 5)]
         c.create_oval(cities[city][0] - 5, cities[city][1] - 5, cities[city][0] + 5, cities[city][1] + 5, fill="white")
         order.append(city)
+
+
+def createCoordCities():
+    city = 0
+    print("Enter -1 to stop \n")
+    print("Consider screen width = " + str(width) + " and height = " + str(height))
+
+    while True:
+        print("Enter the coordinates of city " + str(city + 1))
+        x = int(input("x: "))
+        if x == -1:
+            break
+        while x > width or x < -1:
+            x = int(input("Invalid x value, please re-enter: "))
+        y = int(input("y: "))
+        if y == -1:
+            break
+        while y > height or y < -1:
+            y = int(input("Invalid y value, please re-enter: "))
+
+        cities.append([])
+
+        cities[city] = [x, y]
+        c.create_oval(cities[city][0] - 5, cities[city][1] - 5, cities[city][0] + 5, cities[city][1] + 5, fill="white")
+        order.append(city)
+
+        city += 1
+
+    global numCities
+    numCities = city
+
+
 
 
 def track():
@@ -66,7 +98,13 @@ def calcDistance():
 
 
 createCanvas()
-createCities()
+ans = input("Would you like to enter the cities coordinates?")
+
+if ans == "Yes" or ans == "YES" or ans == "yes":
+    createCoordCities()
+
+else:
+    createCities()
 
 lowestDistance = calcDistance()
 print(lowestDistance)

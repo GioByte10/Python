@@ -4,32 +4,50 @@ import random
 
 
 class Vehicle:
-
     maxSpeed = 2
     maxForce = 0.05
-    r = 6
+    width = 0
+    height = 0
     c = None
 
     def __init__(self, x, y):
         self.position = Vector(x, y)
         self.velocity = Vector(0, -2)
         self.acceleration = Vector(0, 0)
-        r = Vehicle.r
-        self.points = [[x, y - r * 2], [x - r, y + r * 2], [x + r, y + r * 2], [x, y - r * 2]]
         self.vehicle = Vehicle.c.create_oval(x - 5, y - 5, x + 5, y + 5, fill="gray")
         self.x = x
         self.y = y
 
-        self.dna = [0, 0]
-        self.dna[0] = 5
-        self.dna[1] = -0.01
-        self.foodLine = Vehicle.c.create_line(300, 10, 300 + self.dna[0] * 50, 10, fill="green")
-        self.poisonLine = Vehicle.c.create_line(300, 20, 300 + self.dna[1] * 50, 20, fill="red")
+        self.health = 1000
+
+        self.dna = [0, 0, 0, 0]
+        # Food Steer
+        self.dna[0] = random.randint(-2, 2)
+        # Poison Steer
+        self.dna[1] = random.randint(-2, 2)
+        # Food Perception
+        self.dna[2] = random.randint(0, 100)
+        # Poison Perception
+        self.dna[3] = random.randint(0, 100)
+
+        self.foodLine = Vehicle.c.create_line(x, y, x + self.dna[0] * 10, y, fill="green", width=3)
+        self.poisonLine = Vehicle.c.create_line(x, y, x + self.dna[1] * 10, y, fill="red", width=2)
+
+        self.foodPerception = Vehicle.c.create_oval(x - self.dna[2], y - self.dna[2], x + self.dna[2], y + self.dna[2],
+                                                    fill="", outline="green")
+        self.poisonPerception = Vehicle.c.create_oval(x - self.dna[3], y - self.dna[3], x + self.dna[3],
+                                                      y + self.dna[3],
+                                                      fill="", outline="red")
+
+        # self.txtSpeed = Vehicle.c.create_text(x, y - 20, text="0", fill="white")
+        self.txtFoodSteer = Vehicle.c.create_text(x, y - 40, text=str(self.dna[0]), fill="green", font=1)
+        self.txtPoisonSteer = Vehicle.c.create_text(x, y - 20, text=str(self.dna[1]), fill="red", font=1)
 
         print("Food steer: " + str(self.dna[0]) + "     Poison steer: " + str(self.dna[1]))
 
-
     def update(self):
+        self.health -= 1
+
         self.velocity.add(self.acceleration)
         self.position.add(self.velocity)
 
@@ -37,8 +55,24 @@ class Vehicle:
 
         self.acceleration.mult(0)
 
+        red = int((1000 - self.health) * 0.255)
+        green = int(self.health * 0.255)
 
-    def eat(self, listV, list):
+        if red < 0:
+            red = 0
+        elif red > 255:
+            red = 255
+
+        if green > 255:
+            green = 255
+        elif green < 0:
+            green = 0
+
+        # print("red" + str(int((1000 - self.health) * 0.255)) + "  green:" + str(int(self.health * 0.255)))
+
+        Vehicle.c.itemconfig(self.vehicle, fill=self.toRGB((red, green, 0)))
+
+    def eat(self, listV, list, nutrition, perception):
         x = self.position.x
         y = self.position.y
 
@@ -47,11 +81,12 @@ class Vehicle:
 
         for index in range(len(listV)):
             d = math.dist([x, y], [listV[index].x, listV[index].y])
-            if d < distance:
+            if d < distance and d < perception:
                 distance = d
                 closestIndex = index
 
         if distance < 5:
+            self.health += nutrition
             Vehicle.c.delete(list[closestIndex])
             list.remove(list[closestIndex])
             listV.remove(listV[closestIndex])
@@ -61,14 +96,12 @@ class Vehicle:
 
         return Vector(0, 0)
 
-
     def applyForce(self, force):
         self.acceleration.add(force)
 
-
     def behaviors(self, goodV, badV, good, bad):
-        steerG = self.eat(goodV, good)
-        steerB = self.eat(badV, bad)
+        steerG = self.eat(goodV, good, 60, self.dna[2])
+        steerB = self.eat(badV, bad, -100, self.dna[3])
 
         steerG.mult(self.dna[0])
         steerB.mult(self.dna[1])
@@ -76,33 +109,95 @@ class Vehicle:
         self.applyForce(steerG)
         self.applyForce(steerB)
 
-
     def seek(self, target):
         desired = Vector.sSub(target, self.position)
         desired.setMag(Vehicle.maxSpeed)
 
         steer = Vector.sSub(desired, self.velocity)
-        steer.setLimit(self.maxForce)
+        steer.setLimit(Vehicle.maxForce)
 
         return steer
 
         # self.applyForce(steer)
 
-
     def display(self):
         x = self.position.x
         y = self.position.y
 
-        theta = self.velocity.heading() + math.pi / 2
-        center = (x, y)
-
+        # theta = self.velocity.heading() + math.pi / 2
+        # center = (x, y)
         # self.rotate(theta, center)
+
         Vehicle.c.move(self.vehicle, x - self.x, y - self.y)
+        self.updateIndicators()
 
         self.x += x - self.x
         self.y += y - self.y
 
+    def updateIndicators(self):
+        x = self.position.x
+        y = self.position.y
 
+        Vehicle.c.move(self.foodLine, x - self.x, y - self.y)
+        Vehicle.c.move(self.poisonLine, x - self.x, y - self.y)
+
+        Vehicle.c.move(self.foodPerception, x - self.x, y - self.y)
+        Vehicle.c.move(self.poisonPerception, x - self.x, y - self.y)
+
+        Vehicle.c.move(self.txtFoodSteer, x - self.x, y - self.y)
+        Vehicle.c.move(self.txtPoisonSteer, x - self.x, y - self.y)
+
+        # Vehicle.c.itemconfig(self.txtSpeed, text=str(self.velocity.magnitude))
+        # Vehicle.c.move(self.txtSpeed, x - self.x, y - self.y)
+
+    def deleteIndicators(self):
+        Vehicle.c.delete(self.foodLine)
+        Vehicle.c.delete(self.poisonLine)
+
+        Vehicle.c.delete(self.foodPerception)
+        Vehicle.c.delete(self.poisonPerception)
+
+        Vehicle.c.delete(self.txtFoodSteer)
+        Vehicle.c.delete(self.txtPoisonSteer)
+
+        # Vehicle.c.delete(self.txtSpeed)
+
+    def dead(self):
+        return self.health < 0
+
+    def boundaries(self):
+        x = self.position.x
+        y = self.position.y
+
+        d = 25
+        desired = None
+
+        if self.position.x < d:
+            desired = Vector(Vehicle.maxSpeed, self.velocity.y)
+
+        elif self.position.x > Vehicle.width - d:
+            desired = Vector(-Vehicle.maxSpeed, self.velocity.y)
+
+        if self.position.y < d:
+            desired = Vector(self.velocity.x, Vehicle.maxSpeed)
+
+        elif self.position.y > Vehicle.height - d:
+            desired = Vector(self.velocity.x, -Vehicle.maxSpeed)
+
+        if desired is not None:
+            desired.normalize()
+            desired.mult(Vehicle.maxSpeed)
+            steer = Vector.sSub(desired, self.velocity)
+            steer.setLimit(Vehicle.maxForce)
+            self.applyForce(steer)
+
+
+    @staticmethod
+    def toRGB(rgb):
+        return "#%02x%02x%02x" % rgb
+
+
+'''
     def rotate(self, theta, center):
         cos_val = math.cos(theta)
         sin_val = math.sin(theta)
@@ -123,3 +218,4 @@ class Vehicle:
                 new2points.append(coordinates)
 
         Vehicle.c.coords(self.vehicle, new2points)
+'''
