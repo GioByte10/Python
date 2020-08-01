@@ -9,8 +9,9 @@ class Vehicle:
     width = 0
     height = 0
     c = None
+    mutationRate = 0.4
 
-    def __init__(self, x, y):
+    def __init__(self, x, y, dna, health):
         self.position = Vector(x, y)
         self.velocity = Vector(0, -2)
         self.acceleration = Vector(0, 0)
@@ -18,17 +19,38 @@ class Vehicle:
         self.x = x
         self.y = y
 
-        self.health = 1000
+        self.health = health
 
-        self.dna = [0, 0, 0, 0]
-        # Food Steer
-        self.dna[0] = random.randint(-2, 2)
-        # Poison Steer
-        self.dna[1] = random.randint(-2, 2)
-        # Food Perception
-        self.dna[2] = random.randint(0, 100)
-        # Poison Perception
-        self.dna[3] = random.randint(0, 100)
+        if dna is not None:
+            self.dna = [0, 0, 0, 0]
+
+            self.dna[0] = dna[0]
+            print(random.random())
+            if random.random() < Vehicle.mutationRate:
+                self.dna[0] += random.uniform(-0.5, 0.5)
+
+            self.dna[1] = dna[1]
+            if random.random() < Vehicle.mutationRate:
+                self.dna[1] += random.uniform(-0.5, 0.5)
+
+            self.dna[2] = dna[2]
+            if random.random() < Vehicle.mutationRate:
+                self.dna[2] += random.uniform(-10, 10)
+
+            self.dna[3] = dna[3]
+            if random.random() < Vehicle.mutationRate:
+                self.dna[3] += random.uniform(-10, 10)
+
+        else:
+            self.dna = [0, 0, 0, 0]
+            # Food Steer
+            self.dna[0] = random.randint(-2, 2)
+            # Poison Steer
+            self.dna[1] = random.randint(-2, 2)
+            # Food Perception
+            self.dna[2] = random.randint(1, 100)
+            # Poison Perception
+            self.dna[3] = random.randint(1, 100)
 
         self.foodLine = Vehicle.c.create_line(x, y, x + self.dna[0] * 10, y, fill="green", width=3)
         self.poisonLine = Vehicle.c.create_line(x, y, x + self.dna[1] * 10, y, fill="red", width=2)
@@ -43,7 +65,7 @@ class Vehicle:
         self.txtFoodSteer = Vehicle.c.create_text(x, y - 40, text=str(self.dna[0]), fill="green", font=1)
         self.txtPoisonSteer = Vehicle.c.create_text(x, y - 20, text=str(self.dna[1]), fill="red", font=1)
 
-        print("Food steer: " + str(self.dna[0]) + "     Poison steer: " + str(self.dna[1]))
+        # print("Food steer: " + str(self.dna[0]) + "     Poison steer: " + str(self.dna[1]))
 
     def update(self):
         self.health -= 1
@@ -100,8 +122,8 @@ class Vehicle:
         self.acceleration.add(force)
 
     def behaviors(self, goodV, badV, good, bad):
-        steerG = self.eat(goodV, good, 60, self.dna[2])
-        steerB = self.eat(badV, bad, -100, self.dna[3])
+        steerG = self.eat(goodV, good, 100, self.dna[2])
+        steerB = self.eat(badV, bad, -200, self.dna[3])
 
         steerG.mult(self.dna[0])
         steerB.mult(self.dna[1])
@@ -190,6 +212,13 @@ class Vehicle:
             steer = Vector.sSub(desired, self.velocity)
             steer.setLimit(Vehicle.maxForce)
             self.applyForce(steer)
+
+    def clone(self):
+        if random.random() < 0.0003 + self.health / 2000000:
+            return Vehicle(self.position.x, self.position.y, self.dna, 500)
+
+        else:
+            return None
 
 
     @staticmethod

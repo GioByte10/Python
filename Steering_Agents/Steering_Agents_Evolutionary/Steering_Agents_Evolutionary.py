@@ -28,7 +28,7 @@ food = []
 poisonV = []
 poison = []
 
-numVehicles = 5
+numVehicles = 15
 vehicles = []
 toRemove = []
 
@@ -67,7 +67,7 @@ def createFood():
 
 def createVehicles():
     for index in range(numVehicles):
-        vehicles.append(Vehicle(random.randint(0, width), random.randint(0, height)))
+        vehicles.append(Vehicle(random.randint(0, width), random.randint(0, height), None, 1000))
 
 
 createCanvas()
@@ -86,6 +86,10 @@ while len(vehicles) > 0:
         vehicle.update()
         vehicle.display()
 
+        newVehicle = vehicle.clone()
+        if newVehicle is not None:
+            vehicles.append(newVehicle)
+
     root.bind('<Motion>', motion)
     root.update_idletasks()
     root.update()
@@ -94,6 +98,13 @@ while len(vehicles) > 0:
         if vehicle.dead():
             Vehicle.c.delete(vehicle.vehicle)
             vehicle.deleteIndicators()
+
+            foodV.append(Vector(vehicle.position.x, vehicle.position.y))
+            food.append(
+                c.create_oval(foodV[len(foodV) - 1].x - 4, foodV[len(foodV) - 1].y - 4, foodV[len(foodV) - 1].x + 4,
+                              foodV[len(foodV) - 1].y + 4,
+                              fill="green"))
+
             toRemove.append(vehicle)
 
     for vehicle in toRemove:
@@ -113,6 +124,6 @@ while len(vehicles) > 0:
                                     poisonV[len(poisonV) - 1].x + 4, poisonV[len(poisonV) - 1].y + 4,
                                     fill="red"))
 
-    time.sleep(0.001)
+    # time.sleep(0.001)
 
 root.mainloop()
