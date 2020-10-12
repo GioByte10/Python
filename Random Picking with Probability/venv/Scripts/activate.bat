@@ -8,7 +8,7 @@ if defined _OLD_CODEPAGE (
     "%SystemRoot%\System32\chcp.com" 65001 > nul
 )
 
-set VIRTUAL_ENV=C:\Users\super\Desktop\Giovanni\Programacion\Lenguajes\Python\Random Picking with Probability\venv
+set VIRTUAL_ENV=C:\Users\super\Desktop\Giovanni\Programacion\Lenguajes\Python\Random Picking With Probability\venv
 
 if not defined PROMPT set PROMPT=$P$G
 
