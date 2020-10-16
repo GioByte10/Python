@@ -2,9 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="46e102b2-8e0b-458c-b286-0f7c5976ece9" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/../Random Capitalization/Random_Capitalization.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Test.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Test.py" beforeDir="false" afterPath="$PROJECT_DIR$/Test.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -22,7 +21,8 @@
   </component>
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../Machine Learning" />
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../Machine Learning/Genetic Algorithms" />
     <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
   </component>
   <component name="RunManager" selected="Python.Test">
@@ -87,25 +87,25 @@
     <servers />
   </component>
   <component name="WindowStateProjectService">
-    <state x="421" y="83" key="FileChooserDialogImpl" timestamp="1602682745708">
+    <state x="421" y="83" key="FileChooserDialogImpl" timestamp="1602743687721">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
-    <state x="421" y="83" key="FileChooserDialogImpl/0.0.1280.680@0.0.1280.680" timestamp="1602682745708" />
-    <state width="1259" height="104" key="GridCell.Tab.0.bottom" timestamp="1602652183978">
+    <state x="421" y="83" key="FileChooserDialogImpl/0.0.1280.680@0.0.1280.680" timestamp="1602743687721" />
+    <state width="1259" height="163" key="GridCell.Tab.0.bottom" timestamp="1602745512919">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
-    <state width="1259" height="104" key="GridCell.Tab.0.bottom/0.0.1280.680@0.0.1280.680" timestamp="1602652183978" />
-    <state width="1259" height="104" key="GridCell.Tab.0.center" timestamp="1602652183976">
+    <state width="1259" height="163" key="GridCell.Tab.0.bottom/0.0.1280.680@0.0.1280.680" timestamp="1602745512919" />
+    <state width="1259" height="163" key="GridCell.Tab.0.center" timestamp="1602745512918">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
-    <state width="1259" height="104" key="GridCell.Tab.0.center/0.0.1280.680@0.0.1280.680" timestamp="1602652183976" />
-    <state width="1259" height="104" key="GridCell.Tab.0.left" timestamp="1602652183976">
+    <state width="1259" height="163" key="GridCell.Tab.0.center/0.0.1280.680@0.0.1280.680" timestamp="1602745512918" />
+    <state width="1259" height="163" key="GridCell.Tab.0.left" timestamp="1602745512916">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
-    <state width="1259" height="104" key="GridCell.Tab.0.left/0.0.1280.680@0.0.1280.680" timestamp="1602652183976" />
-    <state width="1259" height="104" key="GridCell.Tab.0.right" timestamp="1602652183977">
+    <state width="1259" height="163" key="GridCell.Tab.0.left/0.0.1280.680@0.0.1280.680" timestamp="1602745512916" />
+    <state width="1259" height="163" key="GridCell.Tab.0.right" timestamp="1602745512918">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
-    <state width="1259" height="104" key="GridCell.Tab.0.right/0.0.1280.680@0.0.1280.680" timestamp="1602652183977" />
+    <state width="1259" height="163" key="GridCell.Tab.0.right/0.0.1280.680@0.0.1280.680" timestamp="1602745512918" />
   </component>
 </project>
