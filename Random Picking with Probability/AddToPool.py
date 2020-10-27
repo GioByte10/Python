@@ -1,7 +1,7 @@
 import random
 
 elements = ['A', 'B', 'C']
-probabilities = [0] * 5
+probabilities = [0] * len(elements)
 summatory = 0
 
 for i in range(len(elements)):
