@@ -15,54 +15,45 @@ def check(string):
         return -1
 
 
-def evaluate(gravityA, mass, force, lbs):
+def evaluate(gravityA, mass, force, lbs, sForce):
+    line = ""
+
     if gravityA == -1:
         gravityA = force / mass
+        line += "a = " + str(force) + " N / " + str(mass) + " kg = " + str(gravityA) + " m/s²\n"
+        line += "m = " + str(mass) + " kg\n" + sForce
+
 
     elif mass == -1:
         mass = force / gravityA
+        line += "a = " + str(gravityA) + " m/s²\n"
+        line += "m = " + str(force) + " N / " + str(gravityA) + " m/s² = " + str(mass) + " kg\n"
+        line += sForce
 
     elif force == -1:
         force = mass * gravityA
         lbs = force / 4.448
+        line += "a = " + " m/s²\nm = " + str(mass) + " kg\n"
+        line += "F = " + str(mass) + " kg * " + str(gravityA) + " m/s² = " + str(force) + " N\n"
+        line += "F = " + str(force) + " N / 4.448 N = " + str(lbs) + " lbs\n"
 
-    print("a = " + str(gravityA) + " m/s²\nm = " + str(mass) + " kg\nF = " + str(force) + " N\nF = " + str(lbs) +
-          " lbs\n")
+
+    print(line)
 
 
-def planet(gravityA):
+def planet(gravityA, freeMode):
+
     while True:
 
-        print("Acceleration (m/s²) = " + str(gravityA))
-        mass = check(input("Mass (kg) = "))
+        sForce = ""
 
-        if not mass:
-            return 0
-        force = check(input("Force (N) = "))
-        if not force:
-            return 0
-        lbs = check(input("Force (lbs) = "))
-        if not lbs:
-            return 0
-        print('\n')
+        if freeMode:
+            gravityA = check(input("Acceleration (m/s²) = "))
+            if not gravityA:
+                return 0
 
-        if force != -1:
-            lbs = force / 4.448
-        elif lbs != -1:
-            force = lbs * 4.448
-
-        if mass == -1 and force == -1:
-            print("There is no enough information\n")
         else:
-            evaluate(gravityA, mass, force, lbs)
-
-
-def freeMode():
-    while True:
-
-        gravityA = check(input("Acceleration (m/s²) = "))
-        if not gravityA:
-            return 0
+            print("Acceleration (m/s²) = " + str(gravityA))
 
         mass = check(input("Mass (kg) = "))
         if not mass:
@@ -80,13 +71,18 @@ def freeMode():
 
         if force != -1:
             lbs = force / 4.448
+            sForce += "Force = " + str(force) + " N\n"
+            sForce += "Force = " + str(force) + " N / 4.448 N = " + str(lbs) + " lbs\n"
+
         elif lbs != -1:
             force = lbs * 4.448
+            sForce += "Force = " + str(lbs) + " lbs * 4.448 N = " + str(force) + " N\n"
+            sForce += "Force = " + str(lbs) + " lbs\n"
 
         if (mass == -1 and gravityA == -1) or (mass == -1 and force == -1) or (gravityA == -1 and force == -1):
             print("There is no enough information\n")
         else:
-            evaluate(gravityA, mass, force, lbs)
+            evaluate(gravityA, mass, force, lbs, sForce)
 
 
 while True:
@@ -100,19 +96,19 @@ while True:
     option = int(input("Option #"))
 
     if option == 1:
-        freeMode()
+        planet(0, True)
     else:
         if option == 2:
-            planet(float(input("Acceleration (m/s²) = ")))
+            planet(float(input("Acceleration (m/s²) = ")), False)
 
         elif option == 3:
-            planet(9.81)
+            planet(9.81, False)
 
         elif option == 4:
-            planet(1.62)
+            planet(1.62, False)
 
         elif option == 5:
-            planet(8.87)
+            planet(8.87, False)
 
         elif option == 6:
-            planet(3.72)
+            planet(3.72, False)
