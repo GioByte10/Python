@@ -1,1 +1,2 @@
-print(str(pow(2200, 120)))
+if 1 != 0:
+    print("hi")
