@@ -86,6 +86,7 @@ def planet(gravityA, freeMode):
 
 
 while True:
+
     print("1.- Free mode\n")
     print("2.- Create your own\n")
     print("3.- Earth\na = 9.81 m/s²\n")
@@ -93,22 +94,30 @@ while True:
     print("5.- Venus\na = 8.87 m/s²\n")
     print("6.- Mars\na = 3.72 m/s²\n")
 
-    option = int(input("Option #"))
+    option = input("Option #")
+
+    if option == 'z':
+        break
+
+    option = int(option)
 
     if option == 1:
         planet(0, True)
+
+    elif option == 2:
+        planet(float(input("Acceleration (m/s²) = ")), False)
+
+    elif option == 3:
+        planet(9.81, False)
+
+    elif option == 4:
+        planet(1.62, False)
+
+    elif option == 5:
+        planet(8.87, False)
+
+    elif option == 6:
+        planet(3.72, False)
+
     else:
-        if option == 2:
-            planet(float(input("Acceleration (m/s²) = ")), False)
-
-        elif option == 3:
-            planet(9.81, False)
-
-        elif option == 4:
-            planet(1.62, False)
-
-        elif option == 5:
-            planet(8.87, False)
-
-        elif option == 6:
-            planet(3.72, False)
+        print("That is not a valid option\n")
