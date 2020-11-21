@@ -2,15 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="f1c23acc-bbf7-4a1b-bd78-a2433f75cc8b" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/../Steering_Agents/Steering_Agents_Evolutionary/.idea/dictionaries/super.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Steering_Agents/Steering_Agents_Evolutionary/Test.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Steering_Agents/Steering_Agents_Evolutionary/Steering_Agents_Evolutionary.py" beforeDir="false" afterPath="$PROJECT_DIR$/../Steering_Agents/Steering_Agents_Evolutionary/Steering_Agents_Evolutionary.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Steering_Agents/Steering_Agents_Evolutionary/Vector.py" beforeDir="false" afterPath="$PROJECT_DIR$/../Steering_Agents/Steering_Agents_Evolutionary/Vector.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Steering_Agents/Steering_Agents_Evolutionary/Vehicle.py" beforeDir="false" afterPath="$PROJECT_DIR$/../Steering_Agents/Steering_Agents_Evolutionary/Vehicle.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Steering_Agents/Steering_Agents_Mouse/Vector.py" beforeDir="false" afterPath="$PROJECT_DIR$/../Steering_Agents/Steering_Agents_Mouse/Vector.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Steering_Agents/Steering_Agents_Mouse/Vehicle.py" beforeDir="false" afterPath="$PROJECT_DIR$/../Steering_Agents/Steering_Agents_Mouse/Vehicle.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Security/Brute_Force/Brute_Force.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Security/Brute_Force/test.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Travelling_Salesman.py" beforeDir="false" afterPath="$PROJECT_DIR$/Travelling_Salesman.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -58,6 +52,7 @@
       </list>
     </recent_temporary>
   </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="SvnConfiguration">
     <configuration />
   </component>
