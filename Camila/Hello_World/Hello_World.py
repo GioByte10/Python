@@ -29,4 +29,3 @@ print("Hola" + " " + "Camila")      # We use + in strings to concatenate
 print("Hola Camila")
 
 age = 18                            # We use variables to store data
-print(age / 0)

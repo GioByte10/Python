@@ -1,6 +1,5 @@
 from Genetics import*
 
-str = int(input("Input: "))
-str2 = int(input("Input: "))
+ADN = input("ADN: ")
 
-print(fibonacciSequence(str, str2))
+print(countNucleotides(ADN))
