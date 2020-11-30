@@ -20,23 +20,37 @@ BEANS_CAPPUCCINO = 12
 COST_CAPPUCCINO = 6
 
 
-def checkCups(neededWater, neededMilk, neededBeans, cups):
-    minimum = water // neededWater
+def checkResources(neededWater, neededMilk, neededBeans):
 
-    if neededMilk != 0 and milk // neededMilk < minimum:
-        minimum = milk // neededMilk
+    missing = "Sorry not enough "
 
-    elif beans // neededBeans < minimum:
-        minimum = beans // neededBeans
+    if water < neededWater:
+        missing += "water"
 
-    if minimum == cups:
-        return "Yes, I can make that amount of coffee"
+    if neededMilk != 0 and milk < neededMilk:
+        if len(missing) > 17:
+            missing += ", nor "
 
-    elif minimum > cups:
-        return "Yes, I can make that amount of coffee (and even " + str(minimum - cups) + " more than that)"
+        missing += "milk"
 
-    elif minimum < cups:
-        return "No, I can make only " + str(minimum) + " cups of coffee"
+    if beans < neededBeans:
+        if len(missing) > 17:
+            missing += ", nor "
+
+        missing += "coffee beans"
+
+    if cups == 0:
+        if len(missing) > 17:
+            missing += ", nor "
+
+        missing += "cups"
+
+    if len(missing) > 17:
+        print(missing + '\n')
+        return False
+
+    print("I have enough resources, making you a coffee")
+    return True
 
 
 def display():
@@ -45,49 +59,62 @@ def display():
     print(str(milk) + " ml of milk")
     print(str(beans) + " gr of coffee beans")
     print(str(cups) + " disposable cups")
-    print(str(money) + "$ of money")
+    print(str(money) + "$ of money\n")
 
 
 def latte():
-    global water, milk, beans, cups, money
-    water -= WATER_LATTE
-    milk -= MILK_LATTE
-    beans -= BEANS_LATTE
-    money += COST_LATTE
-    cups -= 1
+    if checkResources(WATER_LATTE, MILK_LATTE, BEANS_LATTE):
+
+        global water, milk, beans, cups, money
+
+        water -= WATER_LATTE
+        milk -= MILK_LATTE
+        beans -= BEANS_LATTE
+        money += COST_LATTE
+        cups -= 1
 
 
 def espresso():
-    global water, milk, beans, cups, money
-    water -= WATER_ESPRESSO
-    beans -= BEANS_ESPRESSO
-    money += COST_ESPRESSO
-    cups -= 1
+    if checkResources(WATER_ESPRESSO, 0, BEANS_ESPRESSO):
+
+        global water, milk, beans, cups, money
+
+        water -= WATER_ESPRESSO
+        beans -= BEANS_ESPRESSO
+        money += COST_ESPRESSO
+        cups -= 1
 
 
 def cappuccino():
-    global water, milk, beans, cups, money
-    water -= WATER_CAPPUCCINO
-    milk -= MILK_CAPPUCCINO
-    beans -= BEANS_CAPPUCCINO
-    money += COST_CAPPUCCINO
-    cups -= 1
+    if checkResources(WATER_CAPPUCCINO, MILK_CAPPUCCINO, BEANS_CAPPUCCINO):
+
+        global water, milk, beans, cups, money
+
+        water -= WATER_CAPPUCCINO
+        milk -= MILK_CAPPUCCINO
+        beans -= BEANS_CAPPUCCINO
+        money += COST_CAPPUCCINO
+        cups -= 1
 
 
 def buy():
     print("What do you want to buy?")
-    coffee = int(input("1.- Espresso\n2.- Latte\n3.- Cappuccino\n"))
+    coffee = input("1.- Espresso\n2.- Latte\n3.- Cappuccino\n\"back\" to main menu\n")
 
-    if coffee == 1:
-        espresso()
+    if coffee != "back":
 
-    elif coffee == 2:
-        latte()
+        coffee = int(coffee)
 
-    elif coffee == 3:
-        cappuccino()
+        if coffee == 1:
+            espresso()
 
-    display()
+        elif coffee == 2:
+            latte()
+
+        elif coffee == 3:
+            cappuccino()
+
+    print()
 
 
 def fill():
@@ -103,29 +130,34 @@ def fill():
     beans += beansToAdd
     cups += cupsToAdd
 
-    display()
+    print()
 
 
 def take():
     global money
-    print("I gave you " + str(money) + "$")
+    print("I gave you " + str(money) + "$\n")
 
     money = 0
 
-    display()
 
+while True:
 
-display()
-option = input("Write action (buy, fill, take): ")
+    option = input("Write action (buy, fill, take, remaining, exit): ")
 
-if option == "buy":
-    buy()
+    if option == "buy":
+        buy()
 
-elif option == "fill":
-    fill()
+    elif option == "fill":
+        fill()
 
-elif option == "take":
-    take()
+    elif option == "take":
+        take()
 
-else:
-    print("Not a valid option")
+    elif option == "remaining":
+        display()
+
+    elif option == "exit":
+        break
+
+    else:
+        print("Not a valid option\n")

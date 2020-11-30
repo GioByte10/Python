@@ -1,6 +1,9 @@
 from PIL import ImageGrab
 import cv2
 import numpy as np
+import pytesseract
+
+pytesseract.pytesseract.tesseract_cmd = r'C:\Users\super\AppData\Local\Tesseract-OCR\tesseract.exe'
 
 
 class Process:
@@ -17,6 +20,7 @@ class Process:
         try:
             health = int(txt)
             self.ocrErr = False
+
         except:
             health = self.currentHealth
             if not self.ocrErr:
@@ -32,11 +36,11 @@ class Process:
 def main():
     process = Process()
     while True:
-        x = 50
-        y = 13
+        x = 120
+        y = 315
 
-        offX = 40
-        offY = 20
+        offX = 160
+        offY = 25
         img = ImageGrab.grab(bbox=(x, y, x + offX, y + offY)).convert('L')
 
         img = np.array(img)
@@ -51,4 +55,3 @@ def main():
 
 if __name__ == '__main__':
     main()
-
