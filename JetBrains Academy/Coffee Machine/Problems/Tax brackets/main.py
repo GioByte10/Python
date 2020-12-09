@@ -16,4 +16,3 @@ else:
 taxed = round(income * tax / 100)
 
 print(f"The tax for {income} is {tax}%. That is {taxed} dollars!")
-

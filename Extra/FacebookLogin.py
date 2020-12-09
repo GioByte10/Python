@@ -51,6 +51,6 @@ if __name__ == "__main__":
     fb_dtsg, user_id, xs = login(session, args.email, args.password)
     
     if user_id:
-        print '{0}:{1}:{2}'.format(fb_dtsg, user_id, xs)
+        print (f'{0}:{1}:{2}'.format(fb_dtsg, user_id, xs))
     else:
-        print 'Login Failed'
+        print('Login Failed')
