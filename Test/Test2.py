@@ -1,47 +1,46 @@
-items = ["Earphones", "Charger", "Mouse", "Stylus"]
-purposes = ["Listen to audio", "Give phone battery", "Maneuver computer", "Write on tablet"]
+items = ["Mouse",              "Monopoly",    "Divine Comedy Book", "Shirt"]
+purposes = ["For my computer", "Have fun",    "Learn new jokes",     "Wear"]
 
 print("What do you want to do?")
+option = input("add, remove, purpose, sublist: ")
+print()
 
-task = input("add, remove, purpose, or sublist: ")
+if option == "add":
+    items.append(input("What is the first item? "))
+    purposes.append(input("What is its purpose? "))
 
-if task == "add":
-    addElement1 = input("\nAdd element 1: ")
-    addPurpose1 = input("Add purpose 1: ")
-    addElement2 = input("\nAdd element 2: ")
-    addPurpose2 = input("Add purpose 2: ")
+    items.append(input("What is the second item? "))
+    purposes.append(input("What is its purpose? "))
 
-    items.append(addElement1)
-    items.append(addElement2)
 
-    purposes.append(addPurpose1)
-    purposes.append(addPurpose2)
 
-    print(items)
-    print(purposes)
+elif option == "remove":
+    toRemove1 = input("What element do you want to remove? ")
+    toRemove2 = input("What other element do you want to remove? ")
 
-elif task == "remove":
-    removeElement1 = input("\nWhat element do you want to remove? ")
-    removeElement2 = input("What other element do you want to remove? ")
+    purposes.remove(purposes[items.index(toRemove1)])
+    items.remove(toRemove1)
 
-    purposes.remove(purposes[items.index(removeElement1)])
-    purposes.remove(purposes[items.index(removeElement2) - 1])
+    purposes.remove(purposes[items.index(toRemove2)])
+    items.remove(toRemove2)
 
-    items.remove(removeElement1)
-    items.remove(removeElement2)
+    print()
 
-    print(items)
-    print(purposes)
+elif option == "purpose":
+    print(purposes[items.index(input("Which element's purpose do you need? "))])
 
-elif task == "purpose":
-    purposeElement = input("What item's purpose do you need? ")
-    print(purposes[items.index(purposeElement)])
+elif option == "sublist":
+    start = input("What is the first element? ")
+    end = input("What is the las element? ")
 
-elif task == "sublist":
-    startingItem = input("What is the starting item? ")
-    endingItem = input("What is the ending item? ")
-    print(items[items.index(startingItem) : items.index(endingItem) + 1])
-    print(purposes[items.index(startingItem) : items.index(endingItem) + 1])
+    startIn = items.index(start)
+    endIn = items.index(end)
 
-else:
-    print("Select only the options given.")
+    print(items[startIn:endIn + 1])
+    print(purposes[startIn:endIn + 1])
+
+    print()
+
+
+print(items)
+print(purposes)

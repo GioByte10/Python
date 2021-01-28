@@ -2,46 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="c4876f56-d57f-4a3e-b0e3-59e02e9ded55" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/../../JetBrains Academy/Coffee Machine/Problems/FizzBuzz/main.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../JetBrains Academy/Coffee Machine/Problems/FizzBuzz/task-info.yaml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../JetBrains Academy/Coffee Machine/Problems/FizzBuzz/task-remote-info.yaml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../JetBrains Academy/Coffee Machine/Problems/FizzBuzz/task.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../JetBrains Academy/Coffee Machine/Problems/Prime number/main.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../JetBrains Academy/Coffee Machine/Problems/Prime number/task-info.yaml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../JetBrains Academy/Coffee Machine/Problems/Prime number/task-remote-info.yaml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../JetBrains Academy/Coffee Machine/Problems/Prime number/task.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../JetBrains Academy/Coffee Machine/Problems/Single-element list/main.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../JetBrains Academy/Coffee Machine/Problems/Single-element list/task-info.yaml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../JetBrains Academy/Coffee Machine/Problems/Single-element list/task-remote-info.yaml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../JetBrains Academy/Coffee Machine/Problems/Single-element list/task.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../JetBrains Academy/Coffee Machine/Problems/Square up/main.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../JetBrains Academy/Coffee Machine/Problems/Square up/task-info.yaml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../JetBrains Academy/Coffee Machine/Problems/Square up/task-remote-info.yaml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../JetBrains Academy/Coffee Machine/Problems/Square up/task.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../JetBrains Academy/Coffee Machine/Problems/The average of all numbers/main.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../JetBrains Academy/Coffee Machine/Problems/The average of all numbers/task-info.yaml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../JetBrains Academy/Coffee Machine/Problems/The average of all numbers/task-remote-info.yaml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../JetBrains Academy/Coffee Machine/Problems/The average of all numbers/task.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Variables.py" beforeDir="false" afterPath="$PROJECT_DIR$/Variables.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../JetBrains Academy/Coffee Machine/.idea/frameworkLessonHistory/storage.storageData" beforeDir="false" afterPath="$PROJECT_DIR$/../../JetBrains Academy/Coffee Machine/.idea/frameworkLessonHistory/storage.storageData" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../JetBrains Academy/Coffee Machine/.idea/frameworkLessonHistory/storage.storageRecordIndex" beforeDir="false" afterPath="$PROJECT_DIR$/../../JetBrains Academy/Coffee Machine/.idea/frameworkLessonHistory/storage.storageRecordIndex" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../JetBrains Academy/Coffee Machine/Coffee Machine/Action_/task-remote-info.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/../../JetBrains Academy/Coffee Machine/Coffee Machine/Action_/task-remote-info.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../JetBrains Academy/Coffee Machine/Coffee Machine/Brush up your code/task-remote-info.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/../../JetBrains Academy/Coffee Machine/Coffee Machine/Brush up your code/task-remote-info.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../JetBrains Academy/Coffee Machine/Coffee Machine/Enough coffee for everyone/task-remote-info.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/../../JetBrains Academy/Coffee Machine/Coffee Machine/Enough coffee for everyone/task-remote-info.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../JetBrains Academy/Coffee Machine/Coffee Machine/Hello, coffee_/task-info.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/../../JetBrains Academy/Coffee Machine/Coffee Machine/Hello, coffee_/task-info.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../JetBrains Academy/Coffee Machine/Coffee Machine/Hello, coffee_/task-remote-info.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/../../JetBrains Academy/Coffee Machine/Coffee Machine/Hello, coffee_/task-remote-info.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../JetBrains Academy/Coffee Machine/Coffee Machine/Machines have needs/task-info.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/../../JetBrains Academy/Coffee Machine/Coffee Machine/Machines have needs/task-info.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../JetBrains Academy/Coffee Machine/Coffee Machine/Machines have needs/task-remote-info.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/../../JetBrains Academy/Coffee Machine/Coffee Machine/Machines have needs/task-remote-info.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../JetBrains Academy/Coffee Machine/Coffee Machine/On a coffee loop/task-info.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/../../JetBrains Academy/Coffee Machine/Coffee Machine/On a coffee loop/task-info.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../JetBrains Academy/Coffee Machine/Coffee Machine/On a coffee loop/task-remote-info.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/../../JetBrains Academy/Coffee Machine/Coffee Machine/On a coffee loop/task-remote-info.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../JetBrains Academy/Coffee Machine/Coffee Machine/lesson-info.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/../../JetBrains Academy/Coffee Machine/Coffee Machine/lesson-info.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../JetBrains Academy/Coffee Machine/Coffee Machine/task/tests.py" beforeDir="false" afterPath="$PROJECT_DIR$/../../JetBrains Academy/Coffee Machine/Coffee Machine/task/tests.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../JetBrains Academy/Coffee Machine/Problems/Full name/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/../../JetBrains Academy/Coffee Machine/Problems/Full name/main.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../JetBrains Academy/Coffee Machine/Problems/Hello, world_/task-remote-info.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/../../JetBrains Academy/Coffee Machine/Problems/Hello, world_/task-remote-info.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../JetBrains Academy/Coffee Machine/Problems/lesson-info.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/../../JetBrains Academy/Coffee Machine/Problems/lesson-info.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../JetBrains Academy/Coffee Machine/course-remote-info.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/../../JetBrains Academy/Coffee Machine/course-remote-info.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Screen_Scraping/Screen_Scraping.py" beforeDir="false" afterPath="$PROJECT_DIR$/../../Screen_Scraping/Screen_Scraping.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Test/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../Test/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Test/Test2.py" beforeDir="false" afterPath="$PROJECT_DIR$/../../Test/Test2.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

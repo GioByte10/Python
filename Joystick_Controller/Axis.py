@@ -38,6 +38,7 @@ while not gameExit:
     if event.type == pygame.JOYAXISMOTION:
 
         lead_x += int(joysticks[-1].get_axis(0) * 4.5)
+        print(joysticks[-1].get_axis(0))
         lead_y += int(joysticks[-1].get_axis(3) * 4.5)
 
 
