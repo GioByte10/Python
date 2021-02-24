@@ -17,7 +17,7 @@ def countNucleotides(dnaString):
         elif char == 'T':
             t += 1
 
-    return "There are " + str(a) + " A, " + str(t) + " T, " + str(c) + " C, " + str(g) + " G"
+    return "There are " + str(a) + " A, " + str(t) + " T, " + str(c) + " C, " + str(g) + " G; a total of " + str(a + t + c+ g) + " bases"
 
 
 def reverseComplement(dna):
@@ -36,6 +36,9 @@ def reverseComplement(dna):
 
         elif char == 'T':
             complement += 'A'
+
+        elif char == ' ':
+            complement += ' '
 
     return complement
 
@@ -66,6 +69,8 @@ def fibonacciSequence(t, k):
 
 def gc_Content(dnaString):
     i = 0
+
+    dnaString = dnaString.replace(" ", "")
 
     for char in dnaString:
         if char == 'G' or char == 'C':
@@ -177,3 +182,51 @@ def codonToAminoAcid(codon):
 
     elif codon[0] == 'A' and codon[1] == 'C':
         return "Threonine (Thr)"
+
+
+def hammingDistance(dna1, dna2):
+
+    distance = 0
+
+    dna1 = dna1.replace(" ", "")
+    dna2 = dna2.replace(" ", "")
+
+    for base in range(len(dna1)):
+        if dna1[base] != dna2[base]:
+            distance += 1
+
+    return distance
+
+
+def countingMotifs(dnaString, sub):
+
+    motifs = []
+
+    for base in range(len(dnaString) - len(sub) + 1):
+        motif = ""
+
+        for n in range(len(sub)):
+            motif += dnaString[base + n]
+
+        if motif == sub:
+            motifs.append([base + 1, base + len(sub)])
+
+    return motifs
+
+
+def checkDna(dnaString):
+    dnaString = dnaString.replace(" ", "")
+
+    for base in dnaString:
+        if base != 'A' and base != 'T' and base != 'C' and base != 'G':
+            return False
+
+    return True
+
+
+def checkRna(rnaString):
+    rnaString = rnaString.replace(" ", "")
+
+    for base in rnaString:
+        if base != 'A' and base != 'T' and base != 'C' and base != 'G':
+            return False

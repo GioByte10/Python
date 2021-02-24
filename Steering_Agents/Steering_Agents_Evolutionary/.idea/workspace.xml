@@ -2,17 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="6cfd6e8b-9092-4755-b5c7-afeb52c9fa1c" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/../../Biology/Counting_DNA_Nucleotides.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../Biology/Genetics.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../Biology/Transcribing_DNA_to_RNA.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../Biology/main.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../Biology/test.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../Physics/Weight of the Worlds/Weight_Of_the_Worlds.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Detect Pattern/.idea/Detect Pattern.iml" beforeDir="false" afterPath="$PROJECT_DIR$/../../Detect Pattern/.idea/Detect Pattern.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Detect Pattern/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../Detect Pattern/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Joystick_Controller/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../Joystick_Controller/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Test/Test.py" beforeDir="false" afterPath="$PROJECT_DIR$/../../Test/Test.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../Biology/y.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../Keyboard/t.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../Keyboard/y.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Machine Learning/TeachableMachine/Image_Recognition/.idea/Image_Recognition.iml" beforeDir="false" afterPath="$PROJECT_DIR$/../../Machine Learning/TeachableMachine/Image_Recognition/.idea/Image_Recognition.iml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
