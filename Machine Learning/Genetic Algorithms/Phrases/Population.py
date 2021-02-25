@@ -23,6 +23,7 @@ class Population:
             for index in range(len(self.target)):
                 if self.membersList[ind][index] == self.target[index]:
                     self.fitness[ind] += 1
+
             print(self.membersList[ind] + "  " + str(int((self.fitness[ind] / len(self.target)) * 100)) + "%")
             self.fitness[ind] = pow(self.fitness[ind], self.fitnessFactor)
             print(self.fitness[ind])

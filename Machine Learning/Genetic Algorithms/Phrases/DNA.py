@@ -1,4 +1,6 @@
 import random
+
+
 class DNA:
 
     def __init__(self, population):
@@ -42,6 +44,3 @@ class DNA:
             char = 59
 
         return chr(char)
-
-
-
