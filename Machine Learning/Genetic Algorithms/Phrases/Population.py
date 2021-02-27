@@ -26,7 +26,7 @@ class Population:
 
             print(self.membersList[ind] + "  " + str(int((self.fitness[ind] / len(self.target)) * 100)) + "%")
             self.fitness[ind] = pow(self.fitness[ind], self.fitnessFactor)
-            print(self.fitness[ind])
+            #  print(self.fitness[ind])
             total += self.fitness[ind]
 
         for ind in range(len(self.membersList)):

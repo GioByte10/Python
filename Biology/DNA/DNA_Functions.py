@@ -56,17 +56,6 @@ def fibonacciSequence(t, k):
     return n2
 
 
-"""def gc_Content(id, dnaString):
-    i = 0
-
-    for char in dnaString:
-        if char == 'G' or char == 'C':
-            i += 1
-
-    return id + '\n' + str((i / len(dnaString)) * 100)
-"""
-
-
 def gc_Content(dnaString):
     i = 0
 
@@ -237,9 +226,6 @@ def checkRna(rnaString):
 def checkEitherDnaOrRna(string):
     string = string.replace(" ", "")
 
-    if string.contains('T') and string.contains('U'):
-        return False
-
     for base in string:
         if base != 'A' and base != 'T' and base != 'C' and base != 'G' and base != 'U':
             return False
@@ -248,7 +234,20 @@ def checkEitherDnaOrRna(string):
 
 
 def checkDnaOrRna(string):
-    if string.contains('T') and string.contains('U'):
+    if 'T' in string and 'U' in string:
         return False
 
     return True
+
+
+
+"""def gc_Content(id, dnaString):
+    i = 0
+
+    for char in dnaString:
+        if char == 'G' or char == 'C':
+            i += 1
+
+    return id + '\n' + str((i / len(dnaString)) * 100)
+"""
+

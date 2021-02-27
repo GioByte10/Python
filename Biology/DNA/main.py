@@ -23,7 +23,7 @@ while True:
 
     if option == 1:
         while True:
-            dna = input("               DNA: ")
+            dna = input("          3'5' DNA: ")
 
             if dna != "-1":
                 if checkDna(dna):
@@ -33,13 +33,14 @@ while True:
                         print(countNucleotides(dna) + "          The GC content is " + gc_Content(dna) + "%\n")
 
                         rna = dnaToRna(dna)
-                        print("RNA: " + rna + '\n')
+                        print("5'3' RNA: " + rna + '\n')
 
                         aminoAcids = getAminoAcids(rna.split())
 
                         print("Amino Acids: ")
 
                         for aminoAcid in aminoAcids:
+
                             print(aminoAcid)
 
                         print()
@@ -58,23 +59,18 @@ while True:
 
             if dna1 != "-1":
                 if checkDna(dna1):
-                    if len(dna1.replace(" ", "")) % 3 == 0:
-                        dna2 = input("Second String: ")
 
-                        if checkDna(dna2):
-                            if len(dna2.replace(" ", "")) % 3 == 0:
-                                if len(dna1.replace(" ", "")) == len(dna2.replace(" ", "")):
-                                    print("There are " + str(hammingDistance(dna1, dna2)) + " mutations")
-                                    print()
+                    dna2 = input("Second String: ")
 
-                                else:
-                                    print("error: the DNA Strings do not have the same length\n")
-                            else:
-                                print("error: the second DNA String contains " + str(len(dna2.replace(" ", ""))) + " bases, which is not a multiple of 3\n")
+                    if checkDna(dna2):
+                        if len(dna1.replace(" ", "")) == len(dna2.replace(" ", "")):
+                            print("There are " + str(hammingDistance(dna1, dna2)) + " mutations")
+                            print()
+
                         else:
-                            print("error: the second DNA String contains characters other than the bases in a DNA String\n")
+                            print("error: the DNA Strings do not have the same length\n")
                     else:
-                        print("error: the first DNA String contains " + str(len(dna1.replace(" ", ""))) + " bases, which is not a multiple of 3\n")
+                        print("error: the second DNA String contains characters other than the bases in a DNA String\n")
                 else:
                     print("error: the first DNA String contains characters other than the bases in a DNA String\n")
             else:
