@@ -1,3 +1,32 @@
+def rewriteStr(string):
+    new = ""
+
+    if '-' in string:
+        char = '-'
+
+    elif ' ' in string:
+        char = ' '
+
+    else:
+        char = ''
+
+    string = cleanString(string)
+
+    for base in range(len(string)):
+        new += string[base]
+
+        if (base + 1) % 3 == 0:
+            new += char
+
+    if new[len(new) - 1] == '-' or new[len(new) - 1] == ' ':
+        new = new[0:len(new) - 1]
+
+    return new
+
+
+
+
+
 def countNucleotides(dnaString):
     g = 0
     t = 0
@@ -20,8 +49,34 @@ def countNucleotides(dnaString):
     return "There are " + str(a) + " A, " + str(t) + " T, " + str(c) + " C, " + str(g) + " G; a total of " + str(a + t + c+ g) + " bases"
 
 
-def reverseComplement(dna):
+def dna_complement(dna):
+    complement = ""
+
+    for char in dna:
+        if char == 'A':
+            complement += 'T'
+
+        elif char == 'C':
+            complement += 'G'
+
+        elif char == 'G':
+            complement += 'C'
+
+        elif char == 'T':
+            complement += 'A'
+
+        else:
+            complement += char
+
+    return complement
+
+
+def dna_reverseComplement(dna):
     dna = dna[::-1]
+    return dna_complement(dna)
+
+
+def rna_complement(dna):
     complement = ""
 
     for char in dna:
@@ -43,23 +98,23 @@ def reverseComplement(dna):
     return complement
 
 
-def fibonacciSequence(t, k):
+def addBonds(dna):
+    bonds = ""
 
-    n1 = 0
-    n2 = 1
+    for char in dna:
+        if char != ' ' and char != '-':
+            bonds += '|'
+        else:
+            bonds += ' '
 
-    for i in range(t - 1):
-        aux = n2
-        n2 = n2 + k*n1
-        n1 = aux
+    return "                    " + bonds
 
-    return n2
 
 
 def gc_Content(dnaString):
     i = 0
 
-    dnaString = dnaString.replace(" ", "")
+    dnaString = cleanString(dnaString)
 
     for char in dnaString:
         if char == 'G' or char == 'C':
@@ -88,6 +143,7 @@ def dnaToRna(dnaString):
 
 
 def separateRna(rnaString):
+    rnaString = cleanString(rnaString)
     new = ""
 
     for i in range(len(rnaString)):
@@ -101,9 +157,11 @@ def separateRna(rnaString):
 
 def getAminoAcids(codons):
     aminoAcids = []
+    aminoAcid = ""
 
     for codon in codons:
-        aminoAcids.append(codonToAminoAcid(codon))
+        aminoAcid = codonToAminoAcid(codon)
+        aminoAcids.append(aminoAcid + (" " * (24 - len(aminoAcid))) + "(" + codon + ")")
 
     return aminoAcids
 
@@ -177,8 +235,8 @@ def hammingDistance(dna1, dna2):
 
     distance = 0
 
-    dna1 = dna1.replace(" ", "")
-    dna2 = dna2.replace(" ", "")
+    dna1 = cleanString(dna1)
+    dna2 = cleanString(dna2)
 
     for base in range(len(dna1)):
         if dna1[base] != dna2[base]:
@@ -204,40 +262,75 @@ def countingMotifs(dnaString, sub):
 
 
 def checkDna(dnaString):
-    dnaString = dnaString.replace(" ", "")
+    dnaString = cleanString(dnaString)
 
     for base in dnaString:
         if base != 'A' and base != 'T' and base != 'C' and base != 'G':
+            print("error: there are characters other than the bases in a DNA String\n")
             return False
 
     return True
 
 
 def checkRna(rnaString):
-    rnaString = rnaString.replace(" ", "")
+    rnaString = cleanString(rnaString)
 
     for base in rnaString:
-        if base != 'A' and base != 'T' and base != 'C' and base != 'G':
+        if base != 'A' and base != 'U' and base != 'C' and base != 'G':
+            print("error: there are characters other than the bases in a RNA String\n")
             return False
 
     return True
 
 
-def checkEitherDnaOrRna(string):
-    string = string.replace(" ", "")
+def checkTriplets(string):
+    if len(cleanString(string)) % 3 == 0:
+        return True
+
+    print("The amino acids cannot be obtained, as the mRNA string contains " + str(len(cleanString(string))) + " bases, which is not a multiple of 3\n")
+    return False
+
+
+def checkIsGeneticMaterial(string, part):
+    string = cleanString(string)
 
     for base in string:
         if base != 'A' and base != 'T' and base != 'C' and base != 'G' and base != 'U':
+            print("error: the" + part + "String contains characters other than the bases in a DNA or RNA String\n")
             return False
 
     return True
 
 
-def checkDnaOrRna(string):
+def checkDnaOrRna(string, part):
     if 'T' in string and 'U' in string:
+        print("error: the " + part + " String can not contain T and U\n")
         return False
 
     return True
+
+
+def checkSameGeneticMaterial(string1, string2):
+    if ('T' in string1 and 'U' in string2) or ('U' in string1 and 'T' in string2):
+        print("Both strings must be of the same type (DNA or RNA)\n")
+        return False
+
+    return True
+
+
+def cleanString(str):
+    str = str.replace(" ", "")
+    str = str.replace("-", "")
+
+    return str
+
+
+
+def getPositions(string):
+    return 10
+
+
+
 
 
 
@@ -249,5 +342,19 @@ def checkDnaOrRna(string):
             i += 1
 
     return id + '\n' + str((i / len(dnaString)) * 100)
+    
+    
+    def fibonacciSequence(t, k):
+
+    n1 = 0
+    n2 = 1
+
+    for i in range(t - 1):
+        aux = n2
+        n2 = n2 + k*n1
+        n1 = aux
+
+    return n2
+    
 """
 
