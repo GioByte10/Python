@@ -1,55 +1,55 @@
+import random
+import time
+from pynput.keyboard import Controller
 
-    # vehicle.eat(foodV, food)
-        # vehicle.eat(poisonV, poison)
+keyboard = Controller()
 
-            # vehicle.seek(mouse)
-                for vehicle in vehicles:
-                            vehicle.boundaries()
-                                    vehicle.behaviors(foodV, poisonV, food, poison)
-                                    vehicle.update()
-                                    vehicle.display()
 
-                                    newVehicle = vehicle.clone()
-                                    if newVehicle is not None:
-                                                    vehicles.append(newVehicle)
+time.sleep(3)
 
-                                                        root.bind('<Motion>', motion)
-                                                        root.update_idletasks()
-                                                        root.update()
 
-                                                        for vehicle in vehicles:
-                                                                    if vehicle.dead():
-                                                                                    Vehicle.c.delete(vehicle.vehicle)
-                                                                                                vehicle.deleteIndicators()
+def type(string):
 
-                                                                                                foodV.append(Vector(vehicle.position.x, vehicle.position.y))
-                                                                                                food.append(
-                                                                                                                    c.create_oval(foodV[len(foodV) - 1].x - 4, foodV[len(foodV) - 1].y - 4, foodV[len(foodV) - 1].x + 4,
-                                                                                                                                                                foodV[len(foodV) - 1].y + 4,
-                                                                                                                                                                fill="green"))
+    for character in string:
+        keyboard.type(character)
+        delay = 0.01
+        time.sleep(delay)
 
-                                                                                                toRemove.append(vehicle)
+    time.sleep(2.5)
 
-                                                                                        for vehicle in toRemove:
-                                                                                                    vehicles.remove(vehicle)
 
-                                                                                                        toRemove = []
+day = 1
 
-                                                                            if random.random() < 0.03:
-                                                                                        foodV.append(Vector(random.randint(0, width), random.randint(0, height)))
-                                                                                                food.append(c.create_oval(foodV[len(foodV) - 1].x - 4, foodV[len(foodV) - 1].y - 4, foodV[len(foodV) - 1].x + 4,
-                                                                                                                                                            foodV[len(foodV) - 1].y + 4,
-                                                                                                                                                            fill="green"))
+for i in range(19):
 
-                                                                                            if random.random() < 0.005:
-                                                                                                        poisonV.append(Vector(random.randint(0, width), random.randint(0, height)))
-                                                                                                                poison.append(c.create_oval(poisonV[len(poisonV) - 1].x - 4, poisonV[len(poisonV) - 1].y - 4,
-                                                                                                                                                                                poisonV[len(poisonV) - 1].x + 4, poisonV[len(poisonV) - 1].y + 4,
-                                                                                                                                                                                fill="red"))
+    date = ""
 
-                                    # time.sleep(0.001)
+    if day == 7:
+        day = 0
 
-                            root.mainloop()
+    if day == 1:
+        date += "Monday, "
 
-                            
-                                                                                                )
+    elif day == 2:
+        date += "Tuesday, "
+
+    elif day == 3:
+        date += "Wednesday, "
+
+    elif day == 4:
+        date += "Thursday, "
+
+    elif day == 5:
+        date += "Friday, "
+
+    elif day == 6:
+        date += "Saturday, "
+
+    elif day == 0:
+        date += "Sunday, "
+
+
+    date += "July " + str(i + 12)
+    day += 1
+
+    type(date)

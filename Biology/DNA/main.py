@@ -8,6 +8,37 @@ option = 0
 print("DNA Calculations\n")
 print("-1 to exit when on the main menu, and to go back to the main menu when on an option\n")
 
+
+# def findSections(aminoAcids, indexes):
+
+
+def analyzeDNA(dna):
+    if checkDna(dna):
+        dna = rewriteStr(dna)
+        print("          3'5' DNA: " + dna)
+        print(addBonds(dna))
+        complement = dna_complement(dna)
+        print("        Complement: " + complement)
+        print("Reverse-complement: " + dna_reverseComplement(complement) + '\n')
+        print(countNucleotides(dna) + "          The GC content is " + gc_Content(dna) + "%\n")
+
+        rna = dnaToRna(dna)
+        print("5'3' mRNA: " + rna + '\n')
+
+        modifiedRNA = checkTriplets(rna)
+
+        aminoAcids = getAminoAcids(modifiedRNA.split())
+
+        print("Amino Acids: ")
+
+        for aminoAcid in aminoAcids:
+            print(aminoAcid)
+
+        print("-----------------------------------------------------------------------------------------\n")
+
+
+
+
 while True:
 
     print("Select an option")
@@ -15,7 +46,8 @@ while True:
     print("2.- mRNA to amino acids")
     print("3.- Identify Point Mutations")
     print("4.- Identify Frameshift Mutations")
-    print("4.- Count Motifs")
+    print("5.- Count Motifs")
+    print("6.- Random DNA String generator")
     print("-1 to exit when on the main menu")
     option = input()
 
@@ -30,27 +62,7 @@ while True:
             print()
 
             if dna != "-1":
-                if checkDna(dna):
-                    dna = rewriteStr(dna)
-                    print("          3'5' DNA: " + dna)
-                    print(addBonds(dna))
-                    print("        Complement: " + dna_complement(dna))
-                    print("Reverse-complement: " + dna_reverseComplement(dna) + '\n')
-                    print(getPositions(dna))
-                    print(countNucleotides(dna) + "          The GC content is " + gc_Content(dna) + "%\n")
-
-                    rna = dnaToRna(dna)
-                    print("5'3' mRNA: " + rna + '\n')
-
-                    if checkTriplets(rna):
-                        aminoAcids = getAminoAcids(rna.split())
-
-                        print("Amino Acids: ")
-
-                        for aminoAcid in aminoAcids:
-                            print(aminoAcid)
-
-                    print("-----------------------------------------------------------------------------------------\n")
+                analyzeDNA(dna)
 
             else:
                 print()
@@ -97,7 +109,7 @@ while True:
                 print()
                 break
 
-    elif option == 4:
+    elif option == 5:
         while True:
             string = input("DNA/RNA String: ").upper()
 
@@ -126,9 +138,36 @@ while True:
                 print()
                 break
 
+    elif option == 6:
+        while True:
+            l = input("String length: ")
+
+            if l.isnumeric() or l == "-1":
+                l = int(l)
+
+                if l == -1:
+                    print()
+                    break
+
+                if l > 0:
+                    randomDNA = generateRandomDNA(l)
+                    analyzeDNA(randomDNA)
+
+                else:
+                    print("error: please enter a number greater than 0\n")
+
+            else:
+                print("error: please enter a valid integer\n")
+
+
     elif option == -1:
         break
 
     else:
         print("Not a valid option. Please enter a valid number\n")
+
+
+
+
+
 

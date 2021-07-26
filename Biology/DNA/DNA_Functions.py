@@ -1,3 +1,6 @@
+import random
+
+
 def rewriteStr(string):
     new = ""
 
@@ -71,9 +74,9 @@ def dna_complement(dna):
     return complement
 
 
-def dna_reverseComplement(dna):
-    dna = dna[::-1]
-    return dna_complement(dna)
+def dna_reverseComplement(complement_dna):
+    reverseComplement = complement_dna[::-1]
+    return rewriteStr(reverseComplement)
 
 
 def rna_complement(dna):
@@ -157,11 +160,10 @@ def separateRna(rnaString):
 
 def getAminoAcids(codons):
     aminoAcids = []
-    aminoAcid = ""
 
     for codon in codons:
         aminoAcid = codonToAminoAcid(codon)
-        aminoAcids.append(aminoAcid + (" " * (24 - len(aminoAcid))) + "(" + codon + ")")
+        aminoAcids.append(aminoAcid + (" " * (27 - len(aminoAcid))) + codon)
 
     return aminoAcids
 
@@ -191,8 +193,14 @@ def codonToAminoAcid(codon):
     elif codon == "UGG":
         return "Tryptophan (Tpr)"
 
-    elif codon == "UGA" or codon == "UAG" or codon == "UAA":
-        return "STOP"
+    elif codon == "UAG":
+        return "STOP - Amber"
+
+    elif codon == "UAA":
+        return "STOP - Ochre"
+
+    elif codon == "UGA":
+        return "STOP - Opal"
 
     elif codon == "UGC" or codon == "UGU":
         return "Cysteine (Cys)"
@@ -285,10 +293,11 @@ def checkRna(rnaString):
 
 def checkTriplets(string):
     if len(cleanString(string)) % 3 == 0:
-        return True
+        return string
 
-    print("The amino acids cannot be obtained, as the mRNA string contains " + str(len(cleanString(string))) + " bases, which is not a multiple of 3\n")
-    return False
+    print("The last amino acid cannot be obtained, as the mRNA string contains " + str(len(cleanString(string))) + " bases, which is not a multiple of 3\n")
+    subS = (len(cleanString(string)) // 3) * 3 + len(cleanString(string)) // 3 - 1
+    return string[0:subS]
 
 
 def checkIsGeneticMaterial(string, part):
@@ -325,13 +334,31 @@ def cleanString(str):
     return str
 
 
+def generateRandomDNA(length):
 
-def getPositions(string):
-    return 10
+    str = ""
 
+    for c in range(length):
+        i = random.randint(0, 3)
 
+        if c != 0 and c % 3 == 0:
+            str += ' '
 
+        if i == 0:
+            c = 'A'
 
+        elif i == 1:
+            c = 'C'
+
+        elif i == 2:
+            c = 'G'
+
+        elif i == 3:
+            c = 'T'
+
+        str += c
+
+    return str
 
 
 """def gc_Content(id, dnaString):

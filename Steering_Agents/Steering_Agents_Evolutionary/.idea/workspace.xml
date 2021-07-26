@@ -2,10 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="6cfd6e8b-9092-4755-b5c7-afeb52c9fa1c" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/../../Biology/y.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../Keyboard/t.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../Keyboard/y.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Machine Learning/TeachableMachine/Image_Recognition/.idea/Image_Recognition.iml" beforeDir="false" afterPath="$PROJECT_DIR$/../../Machine Learning/TeachableMachine/Image_Recognition/.idea/Image_Recognition.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../Google/First.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../Google/K-Goodness.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../Google/Rabbit House.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -25,7 +25,7 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../A_Star/A_Star_Line.py" />
     <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
   </component>
   <component name="RunManager" selected="Python.Steering_Agents_Evolutionary">
@@ -113,59 +113,5 @@
       <updated>1590115876278</updated>
     </task>
     <servers />
-  </component>
-  <component name="WindowStateProjectService">
-    <state x="388" y="143" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1590116226416">
-      <screen x="0" y="0" width="1280" height="680" />
-    </state>
-    <state x="388" y="143" key="#com.intellij.fileTypes.FileTypeChooser/0.0.1280.680@0.0.1280.680" timestamp="1590116226416" />
-    <state x="421" y="96" key="FileChooserDialogImpl" timestamp="1595441577622">
-      <screen x="0" y="0" width="1280" height="680" />
-    </state>
-    <state x="421" y="96" key="FileChooserDialogImpl/0.0.1280.680@0.0.1280.680" timestamp="1595441577622" />
-    <state width="1259" height="214" key="GridCell.Tab.0.bottom" timestamp="1595717874702">
-      <screen x="0" y="0" width="1280" height="680" />
-    </state>
-    <state width="1259" height="214" key="GridCell.Tab.0.bottom/0.0.1280.680@0.0.1280.680" timestamp="1595717874702" />
-    <state width="1259" height="214" key="GridCell.Tab.0.center" timestamp="1595717874702">
-      <screen x="0" y="0" width="1280" height="680" />
-    </state>
-    <state width="1259" height="214" key="GridCell.Tab.0.center/0.0.1280.680@0.0.1280.680" timestamp="1595717874701" />
-    <state width="1259" height="214" key="GridCell.Tab.0.left" timestamp="1595717874701">
-      <screen x="0" y="0" width="1280" height="680" />
-    </state>
-    <state width="1259" height="214" key="GridCell.Tab.0.left/0.0.1280.680@0.0.1280.680" timestamp="1595717874701" />
-    <state width="1259" height="214" key="GridCell.Tab.0.right" timestamp="1595717874702">
-      <screen x="0" y="0" width="1280" height="680" />
-    </state>
-    <state width="1259" height="214" key="GridCell.Tab.0.right/0.0.1280.680@0.0.1280.680" timestamp="1595717874702" />
-    <state width="1259" height="204" key="GridCell.Tab.1.bottom" timestamp="1595126839688">
-      <screen x="0" y="0" width="1280" height="680" />
-    </state>
-    <state width="1259" height="204" key="GridCell.Tab.1.bottom/0.0.1280.680@0.0.1280.680" timestamp="1595126839688" />
-    <state width="1259" height="204" key="GridCell.Tab.1.center" timestamp="1595126839688">
-      <screen x="0" y="0" width="1280" height="680" />
-    </state>
-    <state width="1259" height="204" key="GridCell.Tab.1.center/0.0.1280.680@0.0.1280.680" timestamp="1595126839688" />
-    <state width="1259" height="204" key="GridCell.Tab.1.left" timestamp="1595126839688">
-      <screen x="0" y="0" width="1280" height="680" />
-    </state>
-    <state width="1259" height="204" key="GridCell.Tab.1.left/0.0.1280.680@0.0.1280.680" timestamp="1595126839688" />
-    <state width="1259" height="204" key="GridCell.Tab.1.right" timestamp="1595126839688">
-      <screen x="0" y="0" width="1280" height="680" />
-    </state>
-    <state width="1259" height="204" key="GridCell.Tab.1.right/0.0.1280.680@0.0.1280.680" timestamp="1595126839688" />
-    <state x="252" y="43" key="RollbackChangesDialog" timestamp="1591162914810">
-      <screen x="0" y="0" width="1280" height="680" />
-    </state>
-    <state x="252" y="43" key="RollbackChangesDialog/0.0.1280.680@0.0.1280.680" timestamp="1591162914810" />
-    <state x="142" y="0" key="SettingsEditor" timestamp="1595717769567">
-      <screen x="0" y="0" width="1280" height="680" />
-    </state>
-    <state x="142" y="0" key="SettingsEditor/0.0.1280.680@0.0.1280.680" timestamp="1595717769567" />
-    <state x="303" y="1" width="672" height="678" key="search.everywhere.popup" timestamp="1591055136577">
-      <screen x="0" y="0" width="1280" height="680" />
-    </state>
-    <state x="303" y="1" width="672" height="678" key="search.everywhere.popup/0.0.1280.680@0.0.1280.680" timestamp="1591055136577" />
   </component>
 </project>
