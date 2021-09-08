@@ -24,8 +24,8 @@ keybd = Controller()
 pytesseract.tesseract_cmd = "C:\\Program Files\\Tesseract-OCR\\tesseract.exe"
 
 i = 0
-x = 0
-y = 0
+x = -1
+y = -1
 
 
 def type(string):
@@ -52,56 +52,57 @@ def clear(words_raw):
     return words
 
 
-def crisis(img, x, y):
+def crisis(img):
 
     for char in abc:
         keybd.type(char)
         print(char)
 
-        if not checkWrong(img, x, y):
+        if not checkWrong(img):
             break
 
 
-def checkWrong(img, width, height):
+def checkWrong(img):
 
     for x in range(650):
         for y in range(750):
             if img.getpixel((x, y)) == orange:
-                return True
+                return [x, y]
 
-    return False
+    return [-1, -1]
 
 
-def replaceIfWrong(img, i, width, height):
+def replaceIfWrong(img, i, prev_x, prev_y):
 
-    if i == 4:
-        quickType("aenilukhostry")
+    cords = checkWrong(img)
 
-    elif i >= 5:
-        crisis(img, width, height)
+    if cords[0] != -1:
 
-    for x in range(650):
-        for y in range(750):
-            # print("x: " + str(x) + "     y: " + str(y))
+        x = cords[0]
+        y = cords[1]
 
-            if img.getpixel((x, y)) == orange:
-                img = pyautogui.screenshot(region=(x + 650, y + 90, 140, 70))
-                img.save(r"C:\Users\super\Desktop\Giovanni\Programacion\Lenguajes\Python\Ztype\img.png")
+        img = pyautogui.screenshot(region=(x + 650, y + 90, 140, 70))
+        img.save(r"C:\Users\super\Desktop\Giovanni\Programacion\Lenguajes\Python\Ztype\img.png")
 
-                # pyautogui.moveTo(x + 675, y + 95)
+        # pyautogui.moveTo(x + 675, y + 95)
 
-                i += 1
+        if i == 4:
+            quickType("aenilukhostry")
 
-                # img.save(r"C:\Users\super\Desktop\Giovanni\Programacion\Lenguajes\Python\Ztype\img" + str(i) + ".png")
-                # quickType("aenilukhostry")
+        elif i >= 5:
+            crisis(img)
 
-                return [i, x, y]
+        i += 1
+
+        # img.save(r"C:\Users\super\Desktop\Giovanni\Programacion\Lenguajes\Python\Ztype\img" + str(i) + ".png")
+
+        return [i, x, y]
 
     if i > 0:
         print("++++++++++++++++++ZERO")
         i = 0
 
-    return [i, 0, 0]
+    return [i, -1, -1]
 
 
 while True:

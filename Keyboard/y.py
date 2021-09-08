@@ -15,12 +15,12 @@ def type(string):
         delay = 0.01
         time.sleep(delay)
 
-    time.sleep(2.5)
+    time.sleep(3)
 
 
-day = 1
+day = 5
 
-for i in range(19):
+for i in range(31):
 
     date = ""
 
@@ -49,7 +49,7 @@ for i in range(19):
         date += "Sunday, "
 
 
-    date += "July " + str(i + 12)
+    date += "August " + str(i + 6)
     day += 1
 
     type(date)

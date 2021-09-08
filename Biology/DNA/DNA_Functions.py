@@ -7,27 +7,21 @@ def rewriteStr(string):
     if '-' in string:
         char = '-'
 
-    elif ' ' in string:
+    elif ' ':
         char = ' '
-
-    else:
-        char = ''
 
     string = cleanString(string)
 
-    for base in range(len(string)):
-        new += string[base]
+    for base, letter in enumerate(string):
+        new += letter
 
-        if (base + 1) % 3 == 0:
+        if not (base + 1) % 3:
             new += char
 
-    if new[len(new) - 1] == '-' or new[len(new) - 1] == ' ':
-        new = new[0:len(new) - 1]
+    if new[-1] == '-' or new[-1] == ' ':
+        new = new[:-1]
 
     return new
-
-
-
 
 
 def countNucleotides(dnaString):
@@ -49,7 +43,7 @@ def countNucleotides(dnaString):
         elif char == 'T':
             t += 1
 
-    return "There are " + str(a) + " A, " + str(t) + " T, " + str(c) + " C, " + str(g) + " G; a total of " + str(a + t + c+ g) + " bases"
+    return f"There are {a} A, {t} T, {c} C, {g} G; a total of {a + t + c + g} bases"
 
 
 def dna_complement(dna):
@@ -113,7 +107,6 @@ def addBonds(dna):
     return "                    " + bonds
 
 
-
 def gc_Content(dnaString):
     i = 0
 
@@ -142,30 +135,45 @@ def dnaToRna(dnaString):
         elif base == 'G':
             rnaString += 'C'
 
-    return separateRna(rnaString)
+    return separateStr(rnaString)
 
 
-def separateRna(rnaString):
-    rnaString = cleanString(rnaString)
+def rnaToDna(rnaString):
+    dnaString = ""
+
+    for base in rnaString:
+        if base == 'U':
+            dnaString += 'A'
+
+        elif base == 'A':
+            dnaString += 'T'
+
+        elif base == 'G':
+            dnaString += 'C'
+
+        elif base == 'C':
+            dnaString += 'G'
+
+    return separateStr(dnaString)
+
+
+def separateStr(string):
+    string = cleanString(string)
     new = ""
 
-    for i in range(len(rnaString)):
-        new += rnaString[i]
+    for i, a in enumerate(string):
+        new += a
 
-        if (i + 1) % 3 == 0:
+        if not (i + 1) % 3:
             new += ' '
 
     return new
 
 
 def getAminoAcids(codons):
-    aminoAcids = []
-
     for codon in codons:
         aminoAcid = codonToAminoAcid(codon)
-        aminoAcids.append(aminoAcid + (" " * (27 - len(aminoAcid))) + codon)
-
-    return aminoAcids
+        yield aminoAcid + (" " * (27 - len(aminoAcid))) + codon
 
 
 def codonToAminoAcid(codon):
@@ -240,23 +248,19 @@ def codonToAminoAcid(codon):
 
 
 def hammingDistance(dna1, dna2):
-
     distance = 0
 
     dna1 = cleanString(dna1)
     dna2 = cleanString(dna2)
 
-    for base in range(len(dna1)):
-        if dna1[base] != dna2[base]:
+    for base1, base2 in zip(dna1, dna2):
+        if base1 != base2:
             distance += 1
 
     return distance
 
 
 def countingMotifs(dnaString, sub):
-
-    motifs = []
-
     for base in range(len(dnaString) - len(sub) + 1):
         motif = ""
 
@@ -264,9 +268,7 @@ def countingMotifs(dnaString, sub):
             motif += dnaString[base + n]
 
         if motif == sub:
-            motifs.append([base + 1, base + len(sub)])
-
-    return motifs
+            yield [base + 1, base + len(sub)]
 
 
 def checkDna(dnaString):
@@ -291,13 +293,15 @@ def checkRna(rnaString):
     return True
 
 
-def checkTriplets(string):
-    if len(cleanString(string)) % 3 == 0:
+def correctTriplets(string):
+    if not len(cleanString(string)) % 3:
         return string
 
-    print("The last amino acid cannot be obtained, as the mRNA string contains " + str(len(cleanString(string))) + " bases, which is not a multiple of 3\n")
+    print("The last amino acid cannot be obtained, as the mRNA string contains " + str(
+        len(cleanString(string))) + " bases, which is not a multiple of 3\n")
+
     subS = (len(cleanString(string)) // 3) * 3 + len(cleanString(string)) // 3 - 1
-    return string[0:subS]
+    return string[:subS]
 
 
 def checkIsGeneticMaterial(string, part):
@@ -327,22 +331,18 @@ def checkSameGeneticMaterial(string1, string2):
     return True
 
 
-def cleanString(str):
-    str = str.replace(" ", "")
-    str = str.replace("-", "")
-
-    return str
+def cleanString(string):
+    return string.replace(" ", "").replace("-", "")
 
 
 def generateRandomDNA(length):
-
-    str = ""
+    string = ""
 
     for c in range(length):
         i = random.randint(0, 3)
 
         if c != 0 and c % 3 == 0:
-            str += ' '
+            string += ' '
 
         if i == 0:
             c = 'A'
@@ -356,32 +356,6 @@ def generateRandomDNA(length):
         elif i == 3:
             c = 'T'
 
-        str += c
+        string += c
 
-    return str
-
-
-"""def gc_Content(id, dnaString):
-    i = 0
-
-    for char in dnaString:
-        if char == 'G' or char == 'C':
-            i += 1
-
-    return id + '\n' + str((i / len(dnaString)) * 100)
-    
-    
-    def fibonacciSequence(t, k):
-
-    n1 = 0
-    n2 = 1
-
-    for i in range(t - 1):
-        aux = n2
-        n2 = n2 + k*n1
-        n1 = aux
-
-    return n2
-    
-"""
-
+    return string

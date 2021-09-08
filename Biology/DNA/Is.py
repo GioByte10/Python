@@ -1,22 +1,11 @@
-st1 = input("Son ")
-st2 = input("mas que ")
+import os
 
-sYear1 = ""
-sYear2 = ""
+to_print = ""
+to_print += "foo" + "\n"
+print(to_print)
 
-for c in st1:
-    if c.isdigit():
-        sYear1 += c
+user_input = input("Enter some text: ")
+os.system("cls")
 
-for c in st2:
-    if c.isdigit():
-        sYear2 += c
-
-year1 = int(sYear1)
-year2 = int(sYear2)
-
-if year1 > year2:
-    print("Si")
-
-else:
-    print("no :(")
+to_print += "You just entered " + user_input + "\n"
+print(to_print)
