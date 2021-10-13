@@ -5,7 +5,7 @@ from Population import Population
 mutation = 0.01
 cases = 1
 generations = 0
-power = 1
+power = 2
 
 print("Welcome to Natural Selected Phrases        Mutation Rate = " + str(mutation * 100) + "%")
 members = int(input("Enter a population: "))

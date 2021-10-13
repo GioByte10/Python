@@ -3,6 +3,7 @@ import random
 
 def rewriteStr(string):
     new = ""
+    char = ''
 
     if '-' in string:
         char = '-'
@@ -12,10 +13,10 @@ def rewriteStr(string):
 
     string = cleanString(string)
 
-    for base, letter in enumerate(string):
-        new += letter
+    for i, base in enumerate(string):
+        new += base
 
-        if not (base + 1) % 3:
+        if not (i + 1) % 3:
             new += char
 
     if new[-1] == '-' or new[-1] == ' ':
@@ -247,13 +248,24 @@ def codonToAminoAcid(codon):
         return "Threonine (Thr)"
 
 
-def hammingDistance(dna1, dna2):
+def hammingDistance(str1, str2):
+    arrw = "               "
+
     distance = 0
 
-    dna1 = cleanString(dna1)
-    dna2 = cleanString(dna2)
+    for base1, base2 in zip(str1, str2):
+        if base1 != base2:
+            arrw += '^'
 
-    for base1, base2 in zip(dna1, dna2):
+        else:
+            arrw += ' '
+
+    print(arrw)
+
+    str1 = cleanString(str1)
+    str2 = cleanString(str2)
+
+    for base1, base2 in zip(str1, str2):
         if base1 != base2:
             distance += 1
 
@@ -261,6 +273,9 @@ def hammingDistance(dna1, dna2):
 
 
 def countingMotifs(dnaString, sub):
+
+    motifs = []
+
     for base in range(len(dnaString) - len(sub) + 1):
         motif = ""
 
@@ -268,7 +283,9 @@ def countingMotifs(dnaString, sub):
             motif += dnaString[base + n]
 
         if motif == sub:
-            yield [base + 1, base + len(sub)]
+            motifs.append([base + 1, base + len(sub)])
+
+    return motifs
 
 
 def checkDna(dnaString):
@@ -309,7 +326,7 @@ def checkIsGeneticMaterial(string, part):
 
     for base in string:
         if base != 'A' and base != 'T' and base != 'C' and base != 'G' and base != 'U':
-            print("error: the" + part + "String contains characters other than the bases in a DNA or RNA String\n")
+            print("error: the " + part + " String contains characters other than the bases in a DNA or RNA String\n")
             return False
 
     return True

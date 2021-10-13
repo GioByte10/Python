@@ -4,12 +4,51 @@ print("author: Giovanni Bernal Ramirez")
 print("Report any bug/problem/question/suggestion/improvement/etc to: gvanni.bernal10@gmail.com\n")
 print("")
 
-option = 0
-print("DNA Calculations\n")
+print("Genetic Material Analyzer\n")
 print("-1 to exit when on the main menu, and to go back to the main menu when on an option\n")
+
+option = 0
 
 
 # def findSections(aminoAcids, indexes):
+
+
+def checkString(string):                                    # general string checks
+    if string:
+        string = string.replace(" ", "").replace("-", "")
+
+        if not any(char.isdigit() for char in string):
+            if string.isalpha():
+                return True
+
+            else:
+                print("\nerror: the string must contain letters\n")
+
+        else:
+            print("\nerror: the string cannot contain a number\n")
+
+    else:
+        print("\nerror: no string was entered\n")
+
+    return False
+
+
+def checkRna_m_Triplet(rna):                                # Checks mRNA can form at least 1 triplet
+    if len(rna) > 2:
+        return True
+
+    print("No amino acids can be obtained as there are less than 3 bases\n")
+    return False
+
+
+def checkSameLength(str1, str2):
+    if len(cleanString(str1)) == len(cleanString(str2)):
+        return True
+
+    else:
+        print("error: the strings do not have the same length\n")
+
+    return False
 
 
 def analyzeDNA(dna):
@@ -25,7 +64,7 @@ def analyzeDNA(dna):
         rna = dnaToRna(dna)
         print("5'3' mRNA: " + rna + '\n')
 
-        if len(rna) > 2:
+        if checkRna_m_Triplet(rna):
 
             modifiedRNA = correctTriplets(rna)
             aminoAcids = getAminoAcids(modifiedRNA.split())
@@ -35,13 +74,15 @@ def analyzeDNA(dna):
             for aminoAcid in aminoAcids:
                 print(aminoAcid)
 
-        else:
-            print("No amino acids can be obtained as there are less than 3 bases\n")
-
         print("-----------------------------------------------------------------------------------------\n")
 
 
 while True:
+
+    dna = ""
+    aminoAcid = ""
+    rna = ""
+    aminoAcids = ""
 
     print("Select an option")
     print("1.- Analyze a DNA String")
@@ -62,14 +103,11 @@ while True:
     if option == 1:
         while True:
             dna = input("          3'5' DNA: ").upper()
-            print()
 
             if dna != "-1":
-                if len(dna) > 0:
+                if checkString(dna):
                     analyzeDNA(dna)
 
-                else:
-                    print("error: no string was entered\n")
             else:
                 print()
                 break
@@ -79,13 +117,13 @@ while True:
             rna = input("5'3' mRNA: ").upper()
 
             if rna != "-1":
-                if len(rna) > 0:
+                if checkString(rna):
                     if checkRna(rna):
                         rna = rewriteStr(rna)
                         rna = separateStr(rna)
                         print("           " + rna + '\n')
 
-                        if len(rna) > 2:
+                        if checkRna_m_Triplet(rna):
                             rna = correctTriplets(rna)
                             aminoAcids = getAminoAcids(rna.split())
 
@@ -94,30 +132,30 @@ while True:
                             for aminoAcid in aminoAcids:
                                 print(aminoAcid)
 
-                        else:
-                            print("No amino acids can be obtained as there are less than 3 bases\n")
-
                         print("-----------------------------------------------------------------------------------------\n")
-                else:
-                    print("error: no string was entered\n")
+
             else:
                 break
 
     elif option == 3:
         while True:
-            dna1 = input("First String: ").upper()
+            str1 = input("First String:  ").upper()
 
-            if dna1 != "-1":
-                if checkDna(dna1):
-                    dna2 = input("Second String: ").upper()
+            if str1 != "-1":
+                if checkString(str1):
+                    if checkIsGeneticMaterial(str1, "DNA/RNA"):
+                        # str1 = rewriteStr(str1)
+                        str2 = input("Second String: ").upper()
 
-                    if checkDna(dna2):
-                        if len(cleanString(dna1)) == len(cleanString(dna2)):
-                            print("There are " + str(hammingDistance(dna1, dna2)) + " mutations")
-                            print()
+                        if checkString(str2):
+                            if checkIsGeneticMaterial(str2, "DNA/RNA"):
+                                # str2 = rewriteStr(str2)
 
-                        else:
-                            print("error: the strings do not have the same length\n")
+                                if checkSameGeneticMaterial(str1, str2):
+                                    if checkSameLength(str1, str2):
+                                        print("There are " + str(hammingDistance(str1, str2)) + " mutations")
+                                        print()
+
             else:
                 print()
                 break
@@ -127,32 +165,32 @@ while True:
             string = input("DNA/RNA String: ").upper()
 
             if string != "-1":
-                if checkIsGeneticMaterial(string, "DNA/RNA"):
-                    if checkDnaOrRna(string, "DNA/RNA"):
-                        motif = input("Motif: ").upper()
+                if checkString(string):
+                    if checkIsGeneticMaterial(string, "DNA/RNA"):
+                        if checkDnaOrRna(string, "DNA/RNA"):
+                            motif = input("Motif: ").upper()
 
-                        if checkIsGeneticMaterial(motif, "motif"):
-                            if checkDnaOrRna(motif, "motif"):
-                                if checkSameGeneticMaterial(string, motif):
-                                    if len(string) >= len(motif):
-                                        motifsPos = countingMotifs(string, motif)
+                            if checkIsGeneticMaterial(motif, "motif"):
+                                if checkDnaOrRna(motif, "motif"):
+                                    if checkSameGeneticMaterial(string, motif):
+                                        if len(string) >= len(motif):
+                                            motifsPos = countingMotifs(string, motif)
 
-                                        if len(motifsPos) != 0:
-                                            print(
-                                                "The are " + str(len(motifsPos)) + " " + motif + " motifs located at ",
-                                                end='')
+                                            if len(motifsPos) != 0:
+                                                print("The are " + str(len(motifsPos)) + " " + motif + " motifs located at ", end='')
 
-                                            for motifPos in motifsPos:
-                                                print(motifPos, end='')
+                                                for motifPos in motifsPos:
+                                                    print(motifPos, end='')
+
+                                                print()
+
+                                            else:
+                                                print("There are no " + motif + " motifs")
+
+                                            print("-----------------------------------------------------------------------------------------\n")
 
                                         else:
-                                            print("There are no " + motif + " motifs")
-
-                                        print(
-                                            "-----------------------------------------------------------------------------------------\n")
-
-                                    else:
-                                        print("error: the motif must be shorter than the DNA/RNA String\n")
+                                            print("error: the motif must be shorter than the DNA/RNA String\n")
             else:
                 print()
                 break
@@ -176,7 +214,6 @@ while True:
                     print("error: please enter a number greater than 0\n")
             else:
                 print("error: please enter a valid integer\n")
-
 
     elif option == -1:
         break
