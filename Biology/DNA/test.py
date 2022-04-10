@@ -1,36 +1,90 @@
-
-import numpy as np
-from matplotlib import pyplot as plt
-
-# pick some points for the secant line
-a=3
-b=5
-
-# create a buffered interval about [a,b]
-e = 4
-x = np.linspace(a-e,b+e,num=10000)
+from All_functions import*
 
 
-# define your function here
-def f(x):
-  return x**3-7*x**2+2*x-3
+def analyzeDna_tests():
+    tests = [
+        "-1",
+        "-",
+        "          ",
+        "dSDMID032OM",
+        "",
+        "d"
+        "10",
+        "null",
+        "CATTACGTAGU",
+        "CAT ATT  TTTTT TATAT TTTTA",
+        "CAUT 1_ C",
+        "CAT TAG GCA TAG GAC GGC",
+        "CAT---TAG-GAT----CAG   TA",
+        "CAT-GGA-GAG-GATA",
+        "C",
+        "CA",
+        "uasus",
+        "agctag",
+        "agc cga",
+        "acg---agc",
+        "acgag    agc"
+    ]
 
-# compute the slope of the secant line
-m = (f(b)-f(a))/(b-a)
+    for test in tests:
+        analyzeDna(test)
 
 
-# set up the plot
-fig = plt.figure(figsize=(10,10))
-ax = fig.add_subplot(1,1,1)
-plt.grid(True)
-ax.axhline(y=0, color='k')
-ax.axvline(x=0, color='k')
+def analyzeRna_tests():
+    tests = [
+        "-1",
+        "-",
+        "          ",
+        "dSDMID032OM",
+        "",
+        "d",
+        "10",
+        "null",
+        "CATTACGTAGU",
+        "CAU UAUAU CCAU",
+        "CAU 1_ C",
+        "CAU UAG GCA UAG GAC GGC",
+        "CAU---AG-GAU----CAG   UA",
+        "CAU-GGA-GAG-GAUA",
+        "C",
+        "CA",
+        "aucguacua--  acuaccguc",
+        "uag cuuuu augh",
+        "uag gaggga    gaag"
+    ]
 
-# plot your function and secant line
-ax.plot(x,f(x))
-ax.plot(x,f(a)+m*(x-a))
-ax.plot(a,f(a),'bo')
-ax.plot(b,f(b),'bo')
+    for test in tests:
+        analyzeRna(test)
 
-# label secant line with slope
-plt.annotate("secant slope = %.3f"%((f(b)-f(a))/(b-a)),(a+.5*(b-a),f(a)+.5*(f(b)-f(a))))
+
+def generateRandomGeneticMaterial_tests():
+    tests = [
+        "0",
+        "null",
+        "none",
+        "vmuisvmsi",
+        "___",
+        "",
+        "   ",
+        "----",
+        "o,dwod,w",
+        "-1",
+        "1",
+        "2",
+        "3",
+        "5",
+        "10",
+        "100",
+        "500",
+        "1000",
+        "5000"
+    ]
+
+    for test in tests:
+        generateRandomGeneticMaterial(test)
+
+
+# analyzeDna_tests()
+# analyzeRna_tests()
+# generateRandomGeneticMaterial_tests()
+

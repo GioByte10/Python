@@ -4,12 +4,10 @@ from pynput.keyboard import Controller
 
 keyboard = Controller()
 
-
 time.sleep(3)
 
 
 def type(string):
-
     for character in string:
         keyboard.type(character)
         delay = 0.01
@@ -18,7 +16,7 @@ def type(string):
     time.sleep(3)
 
 
-day = 5
+day = 2
 
 for i in range(31):
 
@@ -48,8 +46,7 @@ for i in range(31):
     elif day == 0:
         date += "Sunday, "
 
-
-    date += "August " + str(i + 6)
+    date += "December " + str(i + 14)
     day += 1
 
     type(date)

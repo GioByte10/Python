@@ -10,10 +10,8 @@ time.sleep(3)
 
 def type(string):
 
-
-
     for character in string:
-        keyboard.type(character)
+        keyboard.type(character + chr(13))
         delay = 0.01
         time.sleep(delay)
 
@@ -21,6 +19,10 @@ def type(string):
 
 
 type("""
-
+What about this
 """)
+
+#
+
+
 

@@ -1,127 +1,157 @@
 import random
+from math import log10
 
 
 def rewriteStr(string):
-    new = ""
-    char = ''
+    """
+    rewrites a string to a correct format if not already
 
-    if '-' in string:
-        char = '-'
+    spacing is either '-' or ' '
+    """
+    same = False
+    new = ''
 
-    elif ' ':
-        char = ' '
+    char = '-' if '-' in string else ' '
 
-    string = cleanString(string)
+    cleaned = cleanString(string)
 
-    for i, base in enumerate(string):
+    for i, base in enumerate(cleaned):
         new += base
 
         if not (i + 1) % 3:
-            new += char
+            new += char + (int(log10((i + 1) / 3)) - 2) * char
 
     if new[-1] == '-' or new[-1] == ' ':
         new = new[:-1]
 
-    return new
+    if new == string:
+        same = True
+
+    return same, new
 
 
 def countNucleotides(dnaString):
+    """
+    counts dna nucleotides
+
+    returns the total number of bases of each base
+    """
     g = 0
     t = 0
     a = 0
     c = 0
 
-    for char in dnaString:
-        if char == 'A':
+    for base in dnaString:
+        if base == 'A':
             a += 1
 
-        elif char == 'C':
+        elif base == 'C':
             c += 1
 
-        elif char == 'G':
+        elif base == 'G':
             g += 1
 
-        elif char == 'T':
+        elif base == 'T':
             t += 1
 
-    return f"There are {a} A, {t} T, {c} C, {g} G; a total of {a + t + c + g} bases"
+    return f"There are {a} A, {t} T, {c} C, and {g} G; a total of {a + t + c + g} bases"
 
 
-def dna_complement(dna):
-    complement = ""
+def dnaComplement(dna):
+    """
+    returns the dna complement
+    """
+    complement = ''
 
-    for char in dna:
-        if char == 'A':
+    for base in dna:
+        if base == 'A':
             complement += 'T'
 
-        elif char == 'C':
+        elif base == 'C':
             complement += 'G'
 
-        elif char == 'G':
+        elif base == 'G':
             complement += 'C'
 
-        elif char == 'T':
+        elif base == 'T':
             complement += 'A'
 
         else:
-            complement += char
+            complement += base
 
     return complement
 
 
-def dna_reverseComplement(complement_dna):
+def dnaReverseComplement(complement_dna):
+    """
+    returns the dna reverse complement by reversing the complement
+    """
     reverseComplement = complement_dna[::-1]
     return rewriteStr(reverseComplement)
 
 
-def rna_complement(dna):
+def rnaComplement(dna):
+    """
+    returns the rna complement
+    """
     complement = ""
 
-    for char in dna:
-        if char == 'A':
+    for base in dna:
+        if base == 'A':
             complement += 'T'
 
-        elif char == 'C':
+        elif base == 'C':
             complement += 'G'
 
-        elif char == 'G':
+        elif base == 'G':
             complement += 'C'
 
-        elif char == 'T':
+        elif base == 'T':
             complement += 'A'
 
-        elif char == ' ':
-            complement += ' '
+        else:
+            complement += base
 
     return complement
 
 
 def addBonds(dna):
-    bonds = ""
+    """
+    Adds bonds (|) between the dna and its complement
+
+    returns a string with the bonds
+    """
+    bonds = ''
 
     for char in dna:
-        if char != ' ' and char != '-':
-            bonds += '|'
-        else:
-            bonds += ' '
+        bonds += '|' if not (char == ' ' or char == '-') else ' '
 
     return "                    " + bonds
 
 
-def gc_Content(dnaString):
+def gcContent(dnaString):
+    """
+    calculates the percentage of g & c bases in a dna string
+
+    returns the gc content
+    """
     i = 0
 
     dnaString = cleanString(dnaString)
 
     for char in dnaString:
-        if char == 'G' or char == 'C':
-            i += 1
+        i += 1 if char == 'G' or char == 'C' else 0
 
-    return str((i / len(dnaString)) * 100)
+    return (i / len(dnaString)) * 100
 
 
 def dnaToRna(dnaString):
-    rnaString = ""
+    """
+    inverts the DNA bases
+
+    returns the RNA of a DNA string
+    """
+    rnaString = ''
 
     for base in dnaString:
         if base == 'A':
@@ -136,10 +166,18 @@ def dnaToRna(dnaString):
         elif base == 'G':
             rnaString += 'C'
 
+        else:
+            rnaString += base
+
     return separateStr(rnaString)
 
 
 def rnaToDna(rnaString):
+    """
+    inverts the RNA bases
+
+    returns the DNA of a RNA string
+    """
     dnaString = ""
 
     for base in rnaString:
@@ -159,6 +197,11 @@ def rnaToDna(rnaString):
 
 
 def separateStr(string):
+    """
+    returns a string with a space added every three characters
+
+    ATC GTA CTA
+    """
     string = cleanString(string)
     new = ""
 
@@ -168,16 +211,25 @@ def separateStr(string):
         if not (i + 1) % 3:
             new += ' '
 
+    if new[-1] == ' ':
+        new = new[:-1]
+
     return new
 
 
 def getAminoAcids(codons):
+    """
+    yields an amino acid from a given list of codons
+    """
     for codon in codons:
         aminoAcid = codonToAminoAcid(codon)
         yield aminoAcid + (" " * (27 - len(aminoAcid))) + codon
 
 
 def codonToAminoAcid(codon):
+    """
+    returns an amino acid from a given codon
+    """
     if codon == "AUG":
         return "START - Methionine (Met)"
 
@@ -249,16 +301,17 @@ def codonToAminoAcid(codon):
 
 
 def hammingDistance(str1, str2):
+    """
+    Adds '^' indicating where the mutation is located
+
+    returns the hamming distance
+    """
     arrw = "               "
 
     distance = 0
 
     for base1, base2 in zip(str1, str2):
-        if base1 != base2:
-            arrw += '^'
-
-        else:
-            arrw += ' '
+        arrw += '^' if base1 != base2 else ' '
 
     print(arrw)
 
@@ -272,28 +325,32 @@ def hammingDistance(str1, str2):
     return distance
 
 
-def countingMotifs(dnaString, sub):
+def countingMotifs(dnaString, motif):
+    """
+    returns the index of the motifs in the DNA string
+    """
 
-    motifs = []
+    motifIndexes = []
 
-    for base in range(len(dnaString) - len(sub) + 1):
-        motif = ""
+    while True:
+        index = dnaString.find(motif)
 
-        for n in range(len(sub)):
-            motif += dnaString[base + n]
+        if index != -1:
+            motifIndexes.append([index + 1, index + len(motif)])
 
-        if motif == sub:
-            motifs.append([base + 1, base + len(sub)])
+        else:
+            return motifIndexes
 
-    return motifs
+        sl = index + len(motif) - len(dnaString)
+        dnaString = dnaString[sl:] if sl != 0 else ''
 
 
 def checkDna(dnaString):
     dnaString = cleanString(dnaString)
 
     for base in dnaString:
-        if base != 'A' and base != 'T' and base != 'C' and base != 'G':
-            print("error: there are characters other than the bases in a DNA String\n")
+        if base not in "ATCG":
+            print("error 0x04: there are characters other than the bases in a DNA String\n")
             return False
 
     return True
@@ -303,76 +360,83 @@ def checkRna(rnaString):
     rnaString = cleanString(rnaString)
 
     for base in rnaString:
-        if base != 'A' and base != 'U' and base != 'C' and base != 'G':
-            print("error: there are characters other than the bases in a RNA String\n")
+        if base not in "AUCG":
+            print("error 0x05: there are characters other than the bases in a RNA string\n")
             return False
 
     return True
 
 
 def correctTriplets(string):
-    if not len(cleanString(string)) % 3:
-        return string
+    """
+    Checks if the RNA string can be separated in triplets
 
-    print("The last amino acid cannot be obtained, as the mRNA string contains " + str(
-        len(cleanString(string))) + " bases, which is not a multiple of 3\n")
+    returns a slice of the string if not
+    """
+    error = ''
+
+    if not len(cleanString(string)) % 3:
+        return string, error
+
+    error = "The last amino acid cannot be obtained, as the mRNA string contains " + str(
+        len(cleanString(string))) + " bases, which is not a multiple of 3\n"
 
     subS = (len(cleanString(string)) // 3) * 3 + len(cleanString(string)) // 3 - 1
-    return string[:subS]
+    return string[:subS], error
 
 
 def checkIsGeneticMaterial(string, part):
+    """
+    Checks if the string contains bases other than those of DNA or RNA
+    """
     string = cleanString(string)
 
     for base in string:
-        if base != 'A' and base != 'T' and base != 'C' and base != 'G' and base != 'U':
-            print("error: the " + part + " String contains characters other than the bases in a DNA or RNA String\n")
+        if base not in "ATUCG":
+            print("error 0x06: the " + part + " string contains characters other than the bases in a DNA or RNA string\n")
             return False
 
     return True
 
 
 def checkDnaOrRna(string, part):
+    """
+    Checks that the string is either DNA or RNA (not both)
+    """
     if 'T' in string and 'U' in string:
-        print("error: the " + part + " String can not contain T and U\n")
+        print("error 0x07: the " + part + " string can not contain T and U\n")
         return False
 
     return True
 
 
 def checkSameGeneticMaterial(string1, string2):
+    """
+    Checks if both strings are of the same genetic material
+    """
     if ('T' in string1 and 'U' in string2) or ('U' in string1 and 'T' in string2):
-        print("Both strings must be of the same type (DNA or RNA)\n")
+        print("Both strings must be of the same genetic material (DNA or RNA)\n")
         return False
 
     return True
 
 
 def cleanString(string):
+    """
+    removes all spaces and '-' of a string
+    """
     return string.replace(" ", "").replace("-", "")
 
 
-def generateRandomDNA(length):
-    string = ""
+def randomGeneticMaterial(length, geneticMaterial):
+    """
+    Generates a random string of bases of the given genetic material (DNA or RNA)
+    """
+    s = ''
+    if geneticMaterial == "DNA":
+        s = "".join(random.choice("ATCG") for _ in range(length))
 
-    for c in range(length):
-        i = random.randint(0, 3)
+    elif geneticMaterial == "RNA":
+        s = "".join(random.choice("AUCG") for _ in range(length))
 
-        if c != 0 and c % 3 == 0:
-            string += ' '
-
-        if i == 0:
-            c = 'A'
-
-        elif i == 1:
-            c = 'C'
-
-        elif i == 2:
-            c = 'G'
-
-        elif i == 3:
-            c = 'T'
-
-        string += c
-
-    return string
+    return rewriteStr(s)[1]

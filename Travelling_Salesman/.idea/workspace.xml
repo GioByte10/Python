@@ -2,8 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="f1c23acc-bbf7-4a1b-bd78-a2433f75cc8b" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/../Security/Brute_Force/Brute_Force.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Security/Brute_Force/test.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Challenges/Find/main.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Dict/Dict.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../SecretSanta/main.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/Travelling_Salesman.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/Travelling_Salesman.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -23,6 +26,8 @@
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
   </component>
   <component name="RunManager">
     <configuration name="Travelling_Salesman" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
@@ -65,43 +70,5 @@
       <updated>1589247092979</updated>
     </task>
     <servers />
-  </component>
-  <component name="WindowStateProjectService">
-    <state x="374" y="143" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1589247135815">
-      <screen x="0" y="0" width="1280" height="680" />
-    </state>
-    <state x="374" y="143" key="#com.intellij.fileTypes.FileTypeChooser/0.0.1280.680@0.0.1280.680" timestamp="1589247135815" />
-    <state width="1259" height="120" key="GridCell.Tab.0.bottom" timestamp="1591241232991">
-      <screen x="0" y="0" width="1280" height="680" />
-    </state>
-    <state width="1259" height="120" key="GridCell.Tab.0.bottom/0.0.1280.680@0.0.1280.680" timestamp="1591241232991" />
-    <state width="1259" height="120" key="GridCell.Tab.0.center" timestamp="1591241232991">
-      <screen x="0" y="0" width="1280" height="680" />
-    </state>
-    <state width="1259" height="120" key="GridCell.Tab.0.center/0.0.1280.680@0.0.1280.680" timestamp="1591241232991" />
-    <state width="1259" height="120" key="GridCell.Tab.0.left" timestamp="1591241232991">
-      <screen x="0" y="0" width="1280" height="680" />
-    </state>
-    <state width="1259" height="120" key="GridCell.Tab.0.left/0.0.1280.680@0.0.1280.680" timestamp="1591241232991" />
-    <state width="1259" height="120" key="GridCell.Tab.0.right" timestamp="1591241232991">
-      <screen x="0" y="0" width="1280" height="680" />
-    </state>
-    <state width="1259" height="120" key="GridCell.Tab.0.right/0.0.1280.680@0.0.1280.680" timestamp="1591241232991" />
-    <state width="1259" height="102" key="GridCell.Tab.1.bottom" timestamp="1589399083224">
-      <screen x="0" y="0" width="1280" height="680" />
-    </state>
-    <state width="1259" height="102" key="GridCell.Tab.1.bottom/0.0.1280.680@0.0.1280.680" timestamp="1589399083224" />
-    <state width="1259" height="102" key="GridCell.Tab.1.center" timestamp="1589399083223">
-      <screen x="0" y="0" width="1280" height="680" />
-    </state>
-    <state width="1259" height="102" key="GridCell.Tab.1.center/0.0.1280.680@0.0.1280.680" timestamp="1589399083223" />
-    <state width="1259" height="102" key="GridCell.Tab.1.left" timestamp="1589399083223">
-      <screen x="0" y="0" width="1280" height="680" />
-    </state>
-    <state width="1259" height="102" key="GridCell.Tab.1.left/0.0.1280.680@0.0.1280.680" timestamp="1589399083223" />
-    <state width="1259" height="102" key="GridCell.Tab.1.right" timestamp="1589399083224">
-      <screen x="0" y="0" width="1280" height="680" />
-    </state>
-    <state width="1259" height="102" key="GridCell.Tab.1.right/0.0.1280.680@0.0.1280.680" timestamp="1589399083224" />
   </component>
 </project>

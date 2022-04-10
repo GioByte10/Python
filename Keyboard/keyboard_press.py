@@ -46,3 +46,4 @@ def click(x, y):
 click(500, 420)
 type("I better be getting into MIT because of this")
 click(400, 400)
+
