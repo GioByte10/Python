@@ -1,7 +1,3 @@
-A = False
-B = True
-C = False
+s = "hello)"
 
-if (A or B) and (not A or C):
-    print("k")
-
+print(s[0:len(s)])
