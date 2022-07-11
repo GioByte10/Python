@@ -1,5 +1,5 @@
 import pygame
-from tkinter import*
+from tkinter import *
 import time
 
 root = Tk()
@@ -36,13 +36,11 @@ while not gameExit:
             gameExit = True
 
     if event.type == pygame.JOYAXISMOTION:
-
         lead_x += int(joysticks[-1].get_axis(0) * 4.5)
-        print(joysticks[-1].get_axis(0))
-        lead_y += int(joysticks[-1].get_axis(3) * 4.5)
+        lead_y += int(joysticks[-1].get_axis(1) * 4.5)
 
-
-    c.create_polygon(lead_x, lead_y, lead_x + 6, lead_y + 10.5, lead_x + 18, lead_y + 10.5, lead_x + 24, lead_y, lead_x + 18, lead_y - 10.5, lead_x + 6, lead_y - 10.5, fill="white", outline="black")
+    c.create_polygon(lead_x, lead_y, lead_x + 6, lead_y + 10.5, lead_x + 18, lead_y + 10.5, lead_x + 24, lead_y, lead_x + 18, lead_y - 10.5, lead_x + 6, lead_y - 10.5,
+                     fill="white", outline="black")
 
     root.update_idletasks()
     root.update()
