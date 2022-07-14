@@ -53,7 +53,6 @@ def lexOrder():
         for item in toReverse:
             values.append(item)
 
-
         print(str(values))
         # print()
 

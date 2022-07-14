@@ -96,11 +96,11 @@ start.searched = True
 queue.append(start)
 
 while len(queue) > 0:
-    current = queue.pop(0)
-    print(current.value)
+    current = queue.pop()
+    # print(current.value)
     if current == end:
         print("found")
-        break;
+        break
 
     for node in current.edges:
         if not node.searched:
