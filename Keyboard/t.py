@@ -4,22 +4,22 @@ from pynput.keyboard import Controller
 
 keyboard = Controller()
 
-
-time.sleep(3)
+time.sleep(7)
 
 
 def type(string):
 
     for character in string:
-        keyboard.type(character + chr(13))
-        delay = 0.01
+        keyboard.type(character)
+        delay = 0.15
         time.sleep(delay)
 
 
 
-
 type("""
-What about this
+Well clearly you don't remember
+Or that's what you want me to think
+You just don't want to chip in fr
 """)
 
 #
