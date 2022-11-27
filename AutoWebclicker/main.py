@@ -69,12 +69,13 @@ time.sleep(5)
 
 driver.find_element(By.XPATH, "//div[@class='MuiButtonBase-root MuiListItem-root MuiListItem-gutters MuiListItem-button']").click()
 
+threshold = randint(60, 130)
 
 while True:
     votes = getVoteCount()
     print(votes)
 
-    if votes > 60:
+    if votes > threshold:
         vote()
         temp = votes
 
@@ -83,6 +84,7 @@ while True:
             print(votes)
 
             if votes < temp:
+                threshold = randint(60, 130)
                 break
 
             time.sleep(10)
