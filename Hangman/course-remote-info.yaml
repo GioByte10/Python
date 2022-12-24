@@ -3,7 +3,7 @@ hyperskill_project:
   ide_files: https://stepik.org/media/attachments/lesson/225053/additional_files.json
   is_template_based: false
   use_ide: true
-update_date: Thu, 01 Jan 1970 00:00:00 UTC
+update_date: "Tue, 13 Dec 2022 04:53:13 UTC"
 stages:
 - id: 372
   step: 6082
@@ -108,7 +108,7 @@ topics:
     theory_id: 16547
   - title: The big O notation
     theory_id: 16699
-  - title: Best, average and worst cases
+  - title: "Best, average and worst cases"
     theory_id: 20084
   - title: String basics
     theory_id: 19445
@@ -118,6 +118,8 @@ topics:
     theory_id: 15090
   - title: Pseudocode basics
     theory_id: 19510
+  - title: Complex constructions in pseudocode
+    theory_id: 20922
   - title: Debugging Python applications in PyCharm
     theory_id: 19163
   - title: Quotes and multi-line strings

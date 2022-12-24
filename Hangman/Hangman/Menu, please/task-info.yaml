@@ -8,6 +8,17 @@ files:
 - name: tests.py
   visible: false
   text: |
+    from test.tests import HangmanTest
+
+    if __name__ == '__main__':
+        HangmanTest('hangman.hangman').run_tests()
+  learner_created: false
+- name: test/__init__.py
+  visible: false
+  learner_created: false
+- name: test/tests.py
+  visible: false
+  text: |
     import re
     from typing import List
 
@@ -879,6 +890,6 @@ files:
     if __name__ == '__main__':
         HangmanTest('hangman.hangman').run_tests()
   learner_created: false
-feedback_link: https://hyperskill.org/projects/69/stages/379/implement#comment
+feedback_link: https://hyperskill.org/learn/step/6089#comment
 status: Unchecked
 record: -1

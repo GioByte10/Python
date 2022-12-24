@@ -1,6 +1,6 @@
 from random import shuffle
 
-tests = 1000
+tests = 10000
 n = 100
 s = 0
 
