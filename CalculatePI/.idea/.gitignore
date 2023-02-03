@@ -1,17 +1,8 @@
 # Default ignored files
 /shelf/
 /workspace.xml
-**/info.txt
-**/info.json
-
 # Editor-based HTTP Client requests
 /httpRequests/
 # Datasource local storage ignored files
 /dataSources/
 /dataSources.local.xml
-
-# Custom
-/Notes
-/email
-/AutoWebclicker
-/DSC10
