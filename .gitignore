@@ -1,8 +1,12 @@
 # Default ignored files
 /shelf/
 /workspace.xml
+
 **/info.txt
 **/info.json
+
+**/data.txt
+**/data.json
 
 # Editor-based HTTP Client requests
 /httpRequests/
